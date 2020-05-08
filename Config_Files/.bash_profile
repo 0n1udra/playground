@@ -1,3 +1,8 @@
+if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
+	export TERM='gnome-256color';
+elif infocmp xterm-256color >/dev/null 2>&1; then
+	export TERM='xterm-256color';
+fi;
 
 if tput setaf 1 &> /dev/null; then
 	tput sgr0; # reset colors
@@ -51,10 +56,7 @@ export COLOR_LIGHT_GRAY='\e[0;37m'
 if [[ "${USER}" == "root" ]]; then
     #This only works if you use sudo -i not su. git prompt will break
 	userStyle="${COLOR_YELLOW}";
-	symbol="#";
-else
-	userStyle="${COLOR_LIGHT_RED}";
-	symbol="$"
+	symbol="#"; else userStyle="${COLOR_LIGHT_RED}"; symbol="$"
 fi;
 
 # Highlight the hostname when connected via SSH.
@@ -72,24 +74,22 @@ PS1+="\[${white}\]:";
 PS1+="\[${userStyle}\]\u"; # username
 PS1+="\[${white}\] > ";
 PS1+="\[${COLOR_GREEN}\]\w"; # working directory full path
-#PS1+="\$(prompt_git \"\[${white}\] : \[${blue}\]\" \"\[${blue}\]\")"; #Git repository details
 PS1+="\n";
 PS1+="\[${white}\]${symbol}> \[${reset}\]"; # `$/#` (and reset color)
 export PS1;
-
 
 # Set vim to default editor
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
 # perminate aliases, can be unalias for current session
-alias ls='ls -GFh'
+alias ls='ls -GFha'
 # List only directories
 alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 alias ll='ls -laihtFG'
 alias python=python3
 alias python2=python2.7
-#alias nano='nano --linenumbers --smooth -c --morespace'
+alias nano='nano --linenumbers --smooth -c --morespace'
 
 # Setting PATH for Python 3.6
 # The original version is saved in .bash_profile.pysave
@@ -196,10 +196,31 @@ alias reload="exec $SHELL -l"
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 
-alias sourcebf="source ~/.bash_profile"
-alias syncssd='rsync -a -L -h -v --delete "/Users/drake/Pictures/Photography/"
+
+################ Drake T ################
+# rsync
 alias rsyncad='rsync -a -L -h -v --delete '
 
+alias syncssd='rsync -a -L -h -v --delete "/Users/drake/Pictures/Photography/" "/Volumes/Drake-SSD/Photography/"' 
 
-#alias python='python3'
+alias syncwalli='rsync -a -L -h -v --delete "/Users/drake/Documents/Wallpaper Project/" "/Volumes/Drake-SSD/Red/Wallpaper Project/"'
+
+
+# tmux
+alias tmuxa='tmux a -t'
+alias tmuxl='tmux ls'
+alias tmuxs='tmux new -s'
+alias tmuxkill='tmux kill-server'
+
+
+# Coding
+alias python='python3'
+
+# Programs
+alias walli='python3 /Users/drake/git/pg/wallpaper.py'
+
+
+# Other
+alias viprofile='vim ~/.bash_profile'
+alias sourcebf="source ~/.bash_profile"
 
