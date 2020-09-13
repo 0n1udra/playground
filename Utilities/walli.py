@@ -1,7 +1,9 @@
 import os, shutil, datetime
 
 # Current Working Directory set
-os.chdir('/Users/drake/Documents/Wallpaper Project')
+mac_dir = '/Users/drake/Documents/Wallpaper Project'
+win_dir = '/mnt/r/Red/Wallpaper Project'
+os.chdir(win_dir)
 print('CWD:', os.getcwd())
 
 # Set date format
