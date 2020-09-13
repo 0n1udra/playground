@@ -1,11 +1,9 @@
-#                   ========== Terminal UI ==========
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
 	export TERM='gnome-256color';
 elif infocmp xterm-256color >/dev/null 2>&1; then
 	export TERM='xterm-256color';
 fi;
 
-# ========== Color
 if tput setaf 1 &> /dev/null; then
 	tput sgr0; # reset colors
 	bold=$(tput bold);
@@ -23,6 +21,7 @@ else
 	white="\e[1;37m";
 	yellow="\e[1;33m";
 fi;
+
 export COLOR_GREEN='\e[0;32m'
 export COLOR_LIGHT_RED='\e[1;31m'
 export COLOR_YELLOW='\e[1;33m'
@@ -53,18 +52,21 @@ PS1+="\n";
 PS1+="\[${white}\]${symbol}> \[${reset}\]"; # `$/#` (and reset color)
 export PS1;
 
-# Vi mode with ctrl-[
-set -o vi
+# ===== ls =====
+alias ls='ls -FGh'
+alias la='ls -FGha'
+alias ll='ls -FGhal'
+# List only directories 
+alias lsd="ls -lFG | grep --color=never '^d'"
+
+
+# Always enable colored `grep` output
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
-
-# ==== tmux
-alias tmuxa='tmux a -t'
-alias tmuxl='tmux ls'
-alias tmuxs='tmux new -s'
-alias tmuxkill='tmux kill-server'
-
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -72,57 +74,28 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 
-# Always enable colored `grep` output
-alias grep='grep --color=auto'
-alias ngrep='grep -rnwiI ./ -e'
 
-# ==========  File System 
+# tmux
+alias tmuxa='tmux a -t'
+alias tmuxl='tmux ls'
+alias tmuxs='tmux new -s'
+alias tmuxkill='tmux kill-server'
 
-# ==== ls
-alias ls='ls -Fh'
-alias lsr='ls -FRh'
-alias la='ls -Fha'
-alias ll='ls -Fhal'
-alias lc='ls -Fha --color'
-alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
+# Coding
+alias python='python3'
+alias gogit='cd ~/git'
 
-
-# === Config Files
-alias sourcebf="source ~/.profile"
+# Config Files
 alias viprofile='vim ~/.profile'
-alias virc='vim ~/.vimrc'
-alias vitmux='vim ~/.tmux.conf'
+alias sourcebf="source ~/.profile"
 alias vissh='vim /etc/ssh/sshd_config'
 
+# ===== Mac =====
+alias rsyncad='rsync -a -L -h -v --delete '
+alias syncssd='rsync -a -L -h -v --delete "/Users/drake/Pictures/Photography/" "/Volumes/Drake-SSD/Photography/"'
 
-# ========== Coding
-alias python='python3'
-alias vi='vim'
+alias syncwalli='rsync -a -L -h -v --delete "/Users/drake/Documents/Wallpaper Project/" "/Volumes/Drake-SSD/Red/Wallpaper Project/"'
+alias walli='python3 /Users/drake/git/pg/wallpaper.py'
 
-# ===== git
-alias gogit='cd ~/git'
-alias goconfig='cd /mnt/c/Users/DT/git/Personal/Config_Files'
-alias goslime='cd /mnt/c/Users/DT/git/TenseiPy/source'
-alias gojux='cd /mnt/c/Users/DT/git/jux.photos/jux_photos'
-alias godt='cd /mnt/c/Users/DT'
-
-alias slime='goslime && tmuxs slime'
-
-alias shortcuts='echo "
-showag      --  Ch17 Agendas
-
-ctrl-[      --  VI Mode         |   alt-a-[     --  VI Copy Mode
-hold shift  --  System Copy     |   shift-RC    --  System Paste
-
-LC - Left Click, Right Click
-"'
-
-# Django
-alias migrate='python manage.py makemigrations && python manage.py migrate'
-alias run='python manage.py runserver'
-alias mrun='migrate && run'
-alias csuper='python manage.py createsuperuser'
-alias sourcedjango='source ~/pyenv/django_env/bin/activate'
 
 clear
-

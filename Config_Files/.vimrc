@@ -12,19 +12,31 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-airline/vim-airline'
 Plugin 'jacoborus/tender.vim'
 Plugin 'powerline/powerline'
+
 Bundle 'edkolev/tmuxline.vim'
 
-Plugin 'davidhalter/jedi-vim'
-
 Plugin 'preservim/nerdtree'
-
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
-" ===== Powerline =====
+" ========== Macros
+let @z = 'i#                    ========== jjbhi'
+let @x = 'i# ========== '
+let @c = 'i# === '
+let @b = 'i"                    ========== jjbhi'
+let @v = 'i" ========== '
+let @n = 'i" === '
+let @s = 'odef __init__(self):jj'
+
+"                    ========== Plugin Keymap
+map <C-n> :NERDTreeToggle<CR>
+
+
+"                    ========== UI 
+" ========== Powerline
 let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = 'fancy'
 let g:airline_theme='base16_grayscale'
@@ -35,17 +47,6 @@ endif
 
 let g:airline_section_warning=""
 let g:airline_symbols.linenr = ' -'
-
-
-" ===== Macros =====
-let @1 = 'i#                    ==========  ==========jjbhi'
-let @2 = 'i# ========== '
-let @3 = 'i# === '
-let @4 = 'i"                    ==========  ==========jjbhi'
-let @5 = 'i" ========== '
-let @6 = 'i" === '
-"
-" ========== UI
 colorscheme tender
 set term=xterm-256color
 set t_ut=
@@ -55,13 +56,12 @@ set colorcolumn=100
 set cursorline " Shows a line under current line
 
 set number " Turn's on number
-set numberwidth=1 " Set number gutter width
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 set list
 
 " === Tabs, Spacing
 set tabstop=4 shiftwidth=4 expandtab " Set spaces (Spaces > Tabs don't @ me!
-set backspace=indent,eol,start " backspace over everything in insert mode
+set backspace=2 " backspace over everything in insert mode
 
 set showmode " Shows current mode
 set title " Show file name
@@ -76,8 +76,8 @@ set showmatch " Show matching () [] {}
 set hlsearch " Highlights search
 set incsearch " Search while typing
 "
-" ========== Editing, Syntax, Spelling, Highlight
-set autoread " reload file if changed exterally
+" ========== Editing, Syntax
+set autoread " reload file if changed externally
 
 set encoding=utf-8 nobomb   " BOM often causes trouble, UTF-8 is awsum.
 set spelllang=en_us         " spell checking
@@ -107,8 +107,8 @@ nnoremap gV `[v`]
 
 " Search and replace word under cursor
 nnoremap \f :%s/\<<C-r><C-w>\>//g<Left><Left>
-unmap \n
-nnoremap \n :nohlsearch <Enter>
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+nnoremap \n :noh <Enter>
 nnoremap \sp :set syntax=python <Enter>
 nnoremap \syn :set syntax=
 " Toggle line numbers and special characters like spaces and newline
@@ -117,7 +117,7 @@ nnoremap tr :reg <Enter>
 nnoremap ti :set autoindent <Enter>
 nnoremap ts :set spell! <Enter>
 nnoremap te :e <Enter>
-nnoremap tm :map
+nnoremap tm :map <Enter>
 nnoremap tvm :so ~/.vimrc <Enter>
 
 nnoremap tn :NERDTreeToggle<CR>
