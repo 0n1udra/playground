@@ -2,10 +2,8 @@
 This is where I put my little scripts and other sometimes useful files.
 
 ## Warning:
-Some of these scripts copy, rename, move and even delete files and/or folders, so make sure you read over the scripts and know what they are doing!
-
-I hold no responsibility to what happens to your files/folders if you misuse these.
-
+Some of these scripts copy, rename, move and even delete files and/or folders, so make sure you read over the scripts and know what they are doing!\
+I hold no responsibility to what happens to your files/folders if you misuse these.\
 Most of these scripts you will need to edit the variables containing file/folder paths if you're going to use the scripts.
 
 # Scripts:
