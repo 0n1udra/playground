@@ -1,6 +1,5 @@
 import shutil, time, sys, os
 
-
 # Set your paths.
 discord_roaming = '/mnt/c/Users/DT/AppData/Roaming/discord/Local Storage'
 discord_local = '/mnt/c/Users/DT/AppData/Local/Discord'
@@ -33,6 +32,3 @@ if __name__ == '__main__':
     if '-b' in sys.argv: backup()
     if '-r' in sys.argv: restore()
     if '-reset' in sys.argv: reset()
-
-
-
