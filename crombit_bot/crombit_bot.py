@@ -1,7 +1,7 @@
-import discord, time, os, sys, datetime
+import datetime, discord, asyncio, sys,  os
 from discord.ext import commands, tasks
 
-with open('/home/slime/crombit_token.txt', 'r') as file: TOKEN = file.readline()
+with open('/home/slime/crombit_bot.token', 'r') as file: TOKEN = file.readline()
 
 bot = commands.Bot(command_prefix='~')
 
@@ -21,8 +21,7 @@ async def on_ready():
     await bot.wait_until_ready()
     print("Crombit Bot PRIMED.")
 
-@bot.command(aliases=['remind', 'r'])
-async def reminder(ctx, *args):
+async def time_input(ctx, args):
     if not len(args) > 1:
         await ctx.send("Missing a time or message argument, or both. Exmaple: `~r 5m Swag time!`")
         return
@@ -41,11 +40,33 @@ async def reminder(ctx, *args):
         await ctx.send("**Error:** Parsing time denotation. Examples: `10s`, `5m`, `1h`.")
         return
 
+    return set_time * multiplier, msg
+
+@bot.command(aliases=['remind', 'r'])
+async def reminder(ctx, *args):
+    args = await time_input(ctx, args)
+    if args:
+        sleep_time, msg = args
+    else: return
+
     await ctx.send("**Reminder set!**")
 
-    time.sleep(set_time * multiplier)
+    await asyncio.sleep(sleep_time)
     await ctx.send(f"(Reminder from {ctx.message.author.mention}): " + msg)
     lprint(ctx, f"Reminder {args[0]}: {msg}")
+
+
+@bot.command(aliases=['tm', 't'])
+async def timeed_message(ctx, *args):
+    args = await time_input(ctx, args)
+    if args:
+        sleep_time, msg = args
+    else: return
+
+    await asyncio.sleep(sleep_time)
+    await ctx.message.delete()
+    lprint(ctx, f"Timed Message {args[0]}: {msg}")
+
 
 
 @bot.command(aliases=['restartcrombit', 'rcrombit', 'rebootcrom', 'restart', 'reboot'])
