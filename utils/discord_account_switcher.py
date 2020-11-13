@@ -39,6 +39,17 @@ def remove():
     if os.path.isdir(f'{discord_roaming}/{name}'):
         shutil.rmtree(f"{discord_roaming}/{name}")
 
+def help():
+    print("""
+    new     --  Add account to be able to switch too, need to be logged into Discord.
+    change  --  Change to different account.
+    delete  --  Delete account.
+    reset   --  Delete all accounts.
+    start   --  Start Discord.
+    stop    --  Stop Discord.
+    """)
+
+
 if __name__ == '__main__':
     if 'new' in sys.argv or '-n' in sys.argv: backup()
     if 'change' in sys.argv or '-c' in sys.argv: restore()
@@ -46,3 +57,4 @@ if __name__ == '__main__':
     if 'reset' in sys.argv: reset()
     if 'start' in sys.argv: start()
     if 'stop' in sys.argv: stop()
+    if 'help' in sys.argv: help()
