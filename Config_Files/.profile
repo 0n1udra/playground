@@ -59,13 +59,6 @@ set -o vi
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
-# ==== tmux
-alias tmuxa='tmux a -t'
-alias tmuxl='tmux ls'
-alias tmuxs='tmux new -s'
-alias tmuxkill='tmux kill-server'
-
-
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
@@ -76,7 +69,14 @@ alias path='echo -e ${PATH//:/\\n}'
 alias grep='grep --color=auto'
 alias ngrep='grep -rnwiI ./ -e'
 
-# ==========  File System 
+# ==== tmux
+alias tmuxa='tmux a -t'
+alias tmuxl='tmux ls'
+alias tmuxs='tmux new -s'
+alias tmuxk='tmux kill-session -t'
+
+alias mcserver='tmuxa mcserver'
+
 
 # ==== ls
 alias ls='ls -Fh'
@@ -95,15 +95,18 @@ alias vitmux='vim ~/.tmux.conf'
 alias vissh='vim /etc/ssh/sshd_config'
 
 
-# ========== Coding
+# ========== Shortcuts
 alias python='python3'
 alias vi='vim'
+alias usync='rsync -rvuP'
+
 
 # ===== git
-alias gogit='cd ~/git'
 alias goconfig='cd /mnt/c/Users/DT/git/Personal/Config_Files'
 alias goslime='cd /mnt/c/Users/DT/git/TenseiPy/source'
+alias gohome='cd /mnt/c/Users/DT'
 alias gojux='cd /mnt/c/Users/DT/git/jux.photos/jux_photos'
+alias gogit='cd /mnt/c/Users/DT/git'
 alias godt='cd /mnt/c/Users/DT'
 
 alias slime='goslime && tmuxs slime'
@@ -117,12 +120,19 @@ hold shift  --  System Copy     |   shift-RC    --  System Paste
 LC - Left Click, Right Click
 "'
 
-# Django
+
+# === Django
 alias migrate='python manage.py makemigrations && python manage.py migrate'
 alias run='python manage.py runserver'
 alias mrun='migrate && run'
 alias csuper='python manage.py createsuperuser'
 alias sourcedjango='source ~/pyenv/django_env/bin/activate'
+
+
+# ========== Scripts
+alias walli='python /mnt/c/Users/DT/git/playground/utils/walli.py'
+alias discord='python /mnt/c/Users/DT/git/playground/utils/discord_account_switcher.py'
+alias startbot='source ~/pyenv/minecraft_bot/bin/activate && cd /mnt/c/Users/DT/git/slime_server/source && python run_bot.py tmuxstart run tmuxattach'
 
 clear
 
