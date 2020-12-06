@@ -2,7 +2,7 @@ import os, shutil, datetime
 
 # Current Working Directory set
 mac_dir = '/Users/drake/Documents/Wallpaper Project'
-win_dir = '/mnt/r/Red/Wallpaper Project'
+win_dir = 'R:/Red/Wallpaper Project'
 os.chdir(win_dir)
 print('CWD:', os.getcwd())
 
