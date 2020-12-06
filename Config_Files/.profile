@@ -2,27 +2,12 @@
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
 	export TERM='gnome-256color';
 elif infocmp xterm-256color >/dev/null 2>&1; then
-	export TERM='xterm-256color';
-fi;
+	export TERM='xterm-256color'; fi;
 
 # ========== Color
-if tput setaf 1 &> /dev/null; then
-	tput sgr0; # reset colors
-	bold=$(tput bold);
-	reset=$(tput sgr0);
-	blue=$(tput setaf 33);
-	orange=$(tput setaf 166);
-	red=$(tput setaf 124);
-	white=$(tput setaf 15);
-	yellow=$(tput setaf 136);
-else
-	bold='';
-	reset="\e[0m";
-	orange="\e[1;33m";
-	red="\e[1;31m";
-	white="\e[1;37m";
-	yellow="\e[1;33m";
-fi;
+if tput setaf 1 &> /dev/null; then 
+    tput sgr0; bold=$(tput bold); reset=$(tput sgr0); blue=$(tput setaf 33); orange=$(tput setaf 166); red=$(tput setaf 124); white=$(tput setaf 15); yellow=$(tput setaf 136);
+else bold=''; reset="\e[0m"; orange="\e[1;33m"; red="\e[1;31m"; white="\e[1;37m"; yellow="\e[1;33m"; fi;
 export COLOR_GREEN='\e[0;32m'
 export COLOR_LIGHT_RED='\e[1;31m'
 export COLOR_YELLOW='\e[1;33m'
@@ -37,9 +22,7 @@ fi;
 # Highlight the hostname when connected via SSH.
 if [[ "${SSH_TTY}" ]]; then
         hostStyle="${bold}${red}";
-else
-        hostStyle="${yellow}";
-fi;
+else hostStyle="${yellow}"; fi;
 
 # Set the terminal title and prompt.
 PS1="\[\033]0;\W\007\]"; # working directory base name
@@ -88,7 +71,7 @@ alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 
 
 # === Config Files
-alias sourcebf="source ~/.profile"
+alias srcprofile="source ~/.profile"
 alias viprofile='vim ~/.profile'
 alias virc='vim ~/.vimrc'
 alias vitmux='vim ~/.tmux.conf'
@@ -112,13 +95,39 @@ alias godt='cd /mnt/c/Users/DT'
 alias slime='goslime && tmuxs slime'
 
 alias shortcuts='echo "
-showag      --  Ch17 Agendas
+:Aliases:
+goslime     --  MC server bot   |   gojux       --  jux_photos  |   goconfig    --  config files
+gohome      --  Windows home    |   gogit       --  git directory
+usync       --  rsync -rvuP     |   ip          --  get public ip
+mcserver    --  tmuxa mcserver
 
+:Scripts:
+showag      --  Ch17 Agendas
+walli       --  Archive Wallpaper changes
+mcbot       --  source minecraft_bot && cd source && run_bot.py tmuxstart run tmuxattach
+crombitbot  --  starts crombit discord bot
+discord     --  discord account switcher
+
+
+:System:
+viprofile   --  ~/.profile      |   virc        --  ~/.vimrc
+vitmux      --  ~/.tmux.conf    |   vissh       --  /etc/ssh/sshd_config
+srcprofile  --  source .profile |   srcdjango   --  source django_env
+
+:Tmux:
+tmuxa       --  tmux attach     |   tmuxk       --  tmux kill
+tmuxl       --  tmux list       |   tmuxs       --  tmux new
+
+:Django:
+run         --  runserver       |   mrun        --  migrate && run  
+csuper      --  new superuser   |   migrate     --  makemigrations && migrate
+
+:Extra:
 ctrl-[      --  VI Mode         |   alt-a-[     --  VI Copy Mode
 hold shift  --  System Copy     |   shift-RC    --  System Paste
-
 LC - Left Click, Right Click
 "'
+alias a='shortcuts'
 
 
 # === Django
@@ -126,13 +135,14 @@ alias migrate='python manage.py makemigrations && python manage.py migrate'
 alias run='python manage.py runserver'
 alias mrun='migrate && run'
 alias csuper='python manage.py createsuperuser'
-alias sourcedjango='source ~/pyenv/django_env/bin/activate'
+alias srcdjango='source ~/pyenv/django_env/bin/activate'
 
 
 # ========== Scripts
 alias walli='python /mnt/c/Users/DT/git/playground/utils/walli.py'
 alias discord='python /mnt/c/Users/DT/git/playground/utils/discord_account_switcher.py'
-alias startbot='source ~/pyenv/minecraft_bot/bin/activate && cd /mnt/c/Users/DT/git/slime_server/source && python run_bot.py tmuxstart run tmuxattach'
+alias mcbot='source ~/pyenv/minecraft_bot/bin/activate && cd /mnt/c/Users/DT/git/slime_server/source && python run_bot.py tmuxstart startbot tmuxattach'
+alias crombitbot="gogit && python playground/crombit_bot/crombit_bot.py"
 
 clear
 
