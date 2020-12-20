@@ -4,16 +4,23 @@ import shutil, time, sys, os
 discord_roaming = '/mnt/c/Users/DT/AppData/Roaming/discord/Local Storage'
 discord_local = '/mnt/c/Users/DT/AppData/Local/Discord'
 
+
 def stop(): os.system("taskkill.exe /IM Discord.exe /F")
+
+
 def start(): os.system(f"{discord_local}/Update.exe --processStart Discord.exe")
+
 
 def backup():
     name = str(input("Save name > "))
-    try: shutil.copytree(f'{discord_roaming}/leveldb/', f'{discord_roaming}/{name}')
-    except: pass
+    try:
+        shutil.copytree(f'{discord_roaming}/leveldb/', f'{discord_roaming}/{name}')
+    except:
+        pass
     if os.path.isdir(f"{discord_roaming}/{name}"):
         print("Added new account.")
-    else: print("Error adding account.")
+    else:
+        print("Error adding account.")
 
 
 def restore():
@@ -26,11 +33,13 @@ def restore():
     time.sleep(1)
     start()
 
-def reset(): 
+
+def reset():
     stop()
     shutil.rmtree(f"{discord_roaming}/leveldb")
     time.sleep(1)
     start()
+
 
 def remove():
     stop()
@@ -38,6 +47,7 @@ def remove():
     name = str(input("Account > "))
     if os.path.isdir(f'{discord_roaming}/{name}'):
         shutil.rmtree(f"{discord_roaming}/{name}")
+
 
 def help():
     print("""

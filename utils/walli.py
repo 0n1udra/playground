@@ -1,4 +1,6 @@
-import os, shutil, datetime
+import datetime
+import os
+import shutil
 
 # Current Working Directory set
 mac_dir = '/Users/drake/Documents/Wallpaper Project'
