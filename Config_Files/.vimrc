@@ -79,6 +79,7 @@ set incsearch " Search while typing
 " ========== Editing, Syntax
 set autoread " reload file if changed externally
 
+syntax on
 set encoding=utf-8 nobomb   " BOM often causes trouble, UTF-8 is awsum.
 set spelllang=en_us         " spell checking
 set spell
