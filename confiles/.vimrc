@@ -108,6 +108,7 @@ nnoremap gV `[v`]
 
 " Search and replace word under cursor
 nnoremap \f :%s/\<<C-r><C-w>\>//g<Left><Left>
+" Search and replace visual selected
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 nnoremap \n :noh <Enter>
 nnoremap \sp :set syntax=python <Enter>
