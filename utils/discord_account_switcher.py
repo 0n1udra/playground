@@ -56,8 +56,7 @@ def help():
     delete  --  Delete account.
     reset   --  Delete all accounts.
     start   --  Start Discord.
-    stop    --  Stop Discord.
-    """)
+    stop    --  Stop Discord.""")
 
 
 if __name__ == '__main__':
