@@ -87,17 +87,15 @@ alias glances='glances -2'
 
 
 # ===== Vars
-WINHOME='/mnt/c/Users/DT'
 
 
 # ===== git
-alias goconfig='cd $WINHOME/git/Personal/Config_Files'
-alias goslime='cd $WINHOME/git/TenseiPy/source'
-alias gotensei='cd $WINHOME/git/TenseiPy'
-alias gojux='cd $WINHOME/git/jux.photos/jux_photos'
-alias gogit='cd $WINHOME/git'
-alias godt='cd $WINHOME'
-alias gomc='cd $WINHOME/Desktop/MC'
+alias goconfig='cd ~/git/Personal/Config_Files'
+alias goslime='cd ~/git/TenseiPy/source'
+alias gotensei='cd ~/git/TenseiPy'
+alias gojux='cd ~/git/jux.photos/jux_photos'
+alias gogit='cd ~/git'
+#alias gomc='cd $WINHOME/Desktop/MC'
 
 alias slime='goslime && tmuxs slime'
 
@@ -111,9 +109,9 @@ jar         --  jar 1-2G
 
 
 :Scripts:
+setup       --  Runs start_sandown_bot.py script, sets up tmux session.
 walli       --  Archive Wallpaper changes
 mcbot       --  source minecraft_bot && cd source && run_bot.py tmuxstart run tmuxattach
-crombitbot  --  starts crombit discord bot
 sandownbot  --  Sandown Channel17 bot
 discord     --  discord account switcher
 
@@ -148,11 +146,11 @@ alias srcdjango='source ~/pyenv/django_env/bin/activate'
 
 
 # ========== Scripts
-alias walli='python $WINHOME/git/playground/utils/walli.py'
-alias discord='python $WINHOME/git/playground/utils/discord_account_switcher.py'
+alias walli='python ~/git/playground/utils/walli.py'
+alias discord='python ~/git/playground/utils/discord_account_switcher.py'
 alias mcbot='source ~/pyenv/minecraft_bot/bin/activate && cd $WINHOME/git/slime_server/source && python run_bot.py starttmux startbot'
-alias crombitbot="gogit && python playground/crombit_bot/crombit_bot.py"
 alias sandownbot="gogit && python sandown_channel17/discord_bot/channel17_bot.py"
+alias setup='gogit && python /home/0n1udra/git/sandown_channel17/discord_bot/scripts/start_sandown_bot.py && tmuxa sess'
 
 clear
 
