@@ -5,8 +5,8 @@ def start_bot():
         print("error")
 
     try:
-        os.system('tmux send-keys -t mcserver:1.0 "new-window" ENTER')
-        os.system('tmux send-keys -t mcserver:2.0 "split-window -v" ENTER')
+        os.system(f'tmux send-keys -t sess:1.0 "new-window" ENTER')
+        os.system(f'tmux send-keys -t sess:2.0 "split-window -v" ENTER')
     except:
         print("Error")
 

@@ -55,7 +55,7 @@ alias tmuxl='tmux ls'
 alias tmuxs='tmux new -s'
 alias tmuxk='tmux kill-session -t'
 
-alias mcserver='tmuxa mcserver'
+alias sess='tmuxa ssess'
 
 
 # ==== ls
@@ -101,7 +101,7 @@ alias shortcuts='echo "
 :Aliases:
 goslime     --  MC server bot   |   gojux       --  jux_photos  |   goconfig    --  config files
 godt        --  Windows home    |   gogit       --  git         |   gomc        --  MC folder
-mcserver    --  tmuxa mcserver  |   slime       --  slime dir && tmuxs
+sess        --  tmuxa sess      |   slime       --  slime dir && tmuxs
 usync       --  rsync -rvuP     |   ip          --  get public ip
 jar         --  jar 1-2G
 
