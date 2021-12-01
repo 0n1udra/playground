@@ -25,15 +25,12 @@ if [[ "${SSH_TTY}" ]]; then
 else hostStyle="${yellow}"; fi;
 
 # Set the terminal title and prompt.
-PS1="\[\033]0;\W\007\]"; # working directory base name
-PS1+="\[${bold}\]\n"; # newline
-PS1+="\[${orange}\]\H"; # Host Computer name
-PS1+="\[${white}\]:";
+PS1="\[${orange}\]\H"; # Host Computer name
+PS1+="\[${white}\]>";
 PS1+="\[${userStyle}\]\u"; # username
-PS1+="\[${white}\] > ";
+PS1+="\[${white}\]>";
 PS1+="\[${COLOR_GREEN}\]\w"; # working directory full path
-PS1+="\n";
-PS1+="\[${white}\]${symbol}> \[${reset}\]"; # `$/#` (and reset color)
+PS1+="\[${white}\]>\[${reset}\]"; # `$/#` (and reset color)
 export PS1;
 
 # Vi mode with ctrl-[
@@ -84,6 +81,7 @@ alias jar='java -Xmx2G -Xms1G -jar'
 alias usync='rsync -rvuP'
 alias vi='vim'
 alias glances='glances -2'
+alias btop='python -m bpytop'
 
 
 # ===== Vars
