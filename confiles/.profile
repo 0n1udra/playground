@@ -30,42 +30,29 @@ PS1+="\[${white}\]>";
 PS1+="\[${userStyle}\]\u"; # username
 PS1+="\[${white}\]>";
 PS1+="\[${COLOR_GREEN}\]\w"; # working directory full path
-PS1+="\[${white}\]>\[${reset}\]"; # `$/#` (and reset color)
+PS1+="\[${white}\]\n> \[${reset}\]"; # `$/#` (and reset color)
 export PS1;
 
 # Vi mode with ctrl-[
 set -o vi
 
+# ========== Shortcuts
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
-
-# IP addresses
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 
 # Always enable colored `grep` output
 alias grep='grep --color=auto'
 alias ngrep='grep -rnwiI ./ -e'
+alias python='python3'
+alias vi='vim'
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias usync='rsync -rvuP'
+alias btop='python -m bpytop'
+alias jar='java -Xmx2G -Xms1G -jar'
 
-# ==== tmux
-alias tmuxa='tmux a -t'
-alias tmuxl='tmux ls'
-alias tmuxs='tmux new -s'
-alias tmuxk='tmux kill-session -t'
-
-alias sess='tmuxa ssess'
-
-
-# ==== ls
-alias ls='ls -Fh'
-alias lsr='ls -FRh'
-alias la='ls -Fha'
-alias ll='ls -Fhal'
-alias lc='ls -Fha --color'
-alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
-
+alias srcslime='source /home/0n1udra/pyenvs/slime_server/bin/activate'
 
 # === Config Files
 alias srcprofile="source ~/.profile"
@@ -74,65 +61,37 @@ alias virc='vim ~/.vimrc'
 alias vitmux='vim ~/.tmux.conf'
 alias vissh='vim /etc/ssh/sshd_config'
 
+# === Scripts
+alias tsetup='gogit && python playground/utils/tmux_setup.py'
+alias tsetupapp='gogit && python playground/utils/tmux_setup.py starttmux startapp'
+alias tsetupall='gogit && python playground/utils/tmux_setup.py starttmux startapp startbots attachtmux'
+alias startbots='gogit && python playground/utils/tmux_setup.py startbots'
+alias slimebot='srcslime && goslime && python run_bot.py startbot'
+alias sandownbot="gogit && python sandown_channel17/source/channel17_bot.py"
 
-# ========== Shortcuts
-alias python='python3'
-alias jar='java -Xmx2G -Xms1G -jar'
-alias usync='rsync -rvuP'
-alias vi='vim'
-alias glances='glances -2'
-alias btop='python -m bpytop'
+# === ls
+alias ls='ls -Fh'
+alias lsr='ls -FRh'
+alias la='ls -Fha'
+alias ll='ls -Fhal'
+alias lc='ls -Fha --color'
+alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 
+# === tmux
+alias tmuxa='tmux a -t'
+alias tmuxl='tmux ls'
+alias tmuxs='tmux new -s'
+alias tmuxk='tmux kill-session -t'
+alias tmuxks='tmux kill-session '
+alias sess='tmuxa sess'
 
-# ===== Vars
-
-
-# ===== git
-alias goconfig='cd ~/git/Personal/Config_Files'
-alias goslime='cd ~/git/TenseiPy/source'
-alias gotensei='cd ~/git/TenseiPy'
-alias gojux='cd ~/git/jux.photos/jux_photos'
+# === git
 alias gogit='cd ~/git'
-#alias gomc='cd $WINHOME/Desktop/MC'
-
-alias slime='goslime && tmuxs slime'
-
-alias shortcuts='echo "
-:Aliases:
-goslime     --  MC server bot   |   gojux       --  jux_photos  |   goconfig    --  config files
-godt        --  Windows home    |   gogit       --  git         |   gomc        --  MC folder
-sess        --  tmuxa sess      |   slime       --  slime dir && tmuxs
-usync       --  rsync -rvuP     |   ip          --  get public ip
-jar         --  jar 1-2G
-
-
-:Scripts:
-setup       --  Runs start_sandown_bot.py script, sets up tmux session.
-walli       --  Archive Wallpaper changes
-mcbot       --  source minecraft_bot && cd source && run_bot.py tmuxstart run tmuxattach
-sandownbot  --  Sandown Channel17 bot
-discord     --  discord account switcher
-
-
-:System:
-viprofile   --  ~/.profile      |   virc        --  ~/.vimrc
-vitmux      --  ~/.tmux.conf    |   vissh       --  /etc/ssh/sshd_config
-srcprofile  --  source .profile |   srcdjango   --  source django_env
-
-:Tmux:
-tmuxa       --  tmux attach     |   tmuxk       --  tmux kill
-tmuxl       --  tmux list       |   tmuxs       --  tmux new
-
-:Django:
-run         --  runserver       |   mrun        --  migrate && run  
-csuper      --  new superuser   |   migrate     --  makemigrations && migrate
-
-:Extra:
-ctrl-[      --  VI Mode         |   alt-a-[     --  VI Copy Mode
-hold shift  --  System Copy     |   shift-RC    --  System Paste
-LC - Left Click, Right Click
-"'
-alias a='shortcuts'
+alias goconfig='cd ~/git/Personal/Config_Files'
+alias goslime='cd ~/git/slime_server/source'
+alias gotensei='cd ~/git/TenseiPy/source'
+alias gojux='cd ~/git/jux.photos/jux_photos'
+alias gomc='cd ~/Games/Minecraft'
 
 
 # === Django
@@ -143,12 +102,39 @@ alias csuper='python manage.py createsuperuser'
 alias srcdjango='source ~/pyenv/django_env/bin/activate'
 
 
-# ========== Scripts
-alias walli='python ~/git/playground/utils/walli.py'
-alias discord='python ~/git/playground/utils/discord_account_switcher.py'
-alias mcbot='source ~/pyenv/minecraft_bot/bin/activate && cd $WINHOME/git/slime_server/source && python run_bot.py starttmux startbot'
-alias sandownbot="gogit && python sandown_channel17/discord_bot/channel17_bot.py"
-alias setup='gogit && python /home/0n1udra/git/sandown_channel17/discord_bot/scripts/start_sandown_bot.py && tmuxa sess'
+alias shortcuts='echo "
+:Aliases:
+goslime  - MC server bot  |  gojux - jux_photos
+gogit    - git            | goconfig - config files
+gomc     - MC Game folder |
+usync    - rsync -rvuP    |  ip    - get public ip
+jar      - jar 1-2G
+
+:Scripts:
+tsetup/tsetupapp/tsetupall - tmux_setup.py (startapp/startall attachtmux)
+slimebot   - srcslime && gogit && python slime_server.py
+sandownbot - Sandown Channel17 bot
+
+:System:
+viprofile   - vi .profile   | virc      - vi .vimrc
+vitmux      - vi .tmux.conf | vissh     - /etc/ssh/sshd_config
+srcprofile  - src .profile  | srcdjango - src django_env
+
+:Tmux:
+tmuxa - attach | tmuxk  - kill
+tmuxl - list   | tmuxks - Kill current session
+tmuxs - new
+
+:Django:
+run    - runserver     | mrun    -  migrate && run  
+csuper - new superuser | migrate -  makemigrations && migrate
+
+:Extra:
+ctrl-[      --  VI Mode         |   alt-a-[     --  VI Copy Mode
+hold shift  --  System Copy     |   shift-RC    --  System Paste
+LC - Left Click, Right Click
+"'
+alias a='shortcuts'
 
 clear
 
