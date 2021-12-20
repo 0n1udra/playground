@@ -22,6 +22,8 @@ def start_tmux_session():
     # === Monitor window
     os.system(f'tmux new-window -t {tmux_session_name} && tmux rename-window -t {tmux_session_name}:3 btop')
 
+    os.system(f'tmux send-keys -t {tmux_session_name}:2.0 "vim" ENTER && tmux send-keys -t {tmux_session_name}:2.0 ":q!" ENTER')  # Sets tmux powerline theme.
+
     time.sleep(1)
 
 if __name__ == '__main__':
