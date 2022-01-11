@@ -66,8 +66,10 @@ alias tsetup='gogit && python playground/utils/tmux_setup.py'
 alias tsetupapp='gogit && python playground/utils/tmux_setup.py starttmux startapp'
 alias tsetupall='gogit && python playground/utils/tmux_setup.py starttmux startapp startbots attachtmux'
 alias startbots='gogit && python playground/utils/tmux_setup.py startbots'
-alias slimebot='srcslime && goslime && python run_bot.py startbot'
+alias slimebot='srcslime && goslime && python slime_bot.py'
 alias sandownbot="gogit && python sandown_channel17/source/channel17_bot.py"
+
+alias gozomboid="cd '/home/0n1udra/.steam/steam/steamapps/common/Project Zomboid Dedicated Server'"
 
 # === ls
 alias ls='ls -Fh'
@@ -84,6 +86,7 @@ alias tmuxs='tmux new -s'
 alias tmuxk='tmux kill-session -t'
 alias tmuxks='tmux kill-session '
 alias sess='tmuxa sess'
+alias vhserver='tmuxa vhserver'
 
 # === git
 alias gogit='cd ~/git'
