@@ -15,12 +15,6 @@ def start_tmux_session():
 && tmux split-window -h -t {tmux_session_name}:0.0 \
 && tmux split-window -h -t {tmux_session_name}:0.2')
 
-    # === SSH window
-    # New window, renames window, new vertical pane
-    os.system(f'tmux new-window -t {tmux_session_name} && \
-    tmux rename-window -t {tmux_session_name}:1 Stuff \
-&& tmux split-window -v -t {tmux_session_name}:1.0')
-
     # === Another window with 2 panes
     os.system(f'tmux new-window -t {tmux_session_name} && \
 tmux rename-window -t {tmux_session_name}:2 More && \
@@ -41,4 +35,5 @@ if __name__ == '__main__':
     if 'startapp' in sys.argv:
         #os.system(f'tmux send-keys -t {tmux_session_name}:1.0 "ssh mbp13" ENTER')  # SSH MBP13
         os.system(f'tmux send-keys -t {tmux_session_name}:0.1 "btop" ENTER')  # Start bpytop
+        time.sleep(1)
     if 'attachtmux' in sys.argv: os.system(f"tmux attach -t {tmux_session_name}")
