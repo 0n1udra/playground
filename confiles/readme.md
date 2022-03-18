@@ -4,4 +4,10 @@ Link: https://github.com/VundleVim/Vundle.vim
 2. Setup Bash profile.
 3. Open vim and use command :PluginInstall
 
+Install Powerline fonts:
+Link: https://github.com/powerline/fonts
+Other: Clone above repo, and run ./install.sh inside.
+Debian: sudo apt-get install fonts-powerline
+
+
 
