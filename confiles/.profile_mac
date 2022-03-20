@@ -42,14 +42,12 @@ fi;
 
 # Set the terminal title and prompt.
 PS1="\[\033]0;\W\007\]"; # working directory base name
-PS1+="\[${bold}\]\n"; # newline
 PS1+="\[${orange}\]\H"; # Host Computer name
-PS1+="\[${white}\]:";
+PS1+="\[${white}\]>";
 PS1+="\[${userStyle}\]\u"; # username
-PS1+="\[${white}\] > ";
+PS1+="\[${white}\]>";
 PS1+="\[${COLOR_GREEN}\]\w"; # working directory full path
-PS1+="\n";
-PS1+="\[${white}\]${symbol}> \[${reset}\]"; # `$/#` (and reset color)
+PS1+="\[${white}\]\n> \[${reset}\]"; # `$/#` (and reset color)
 export PS1;
 
 # ===== ls =====
@@ -87,7 +85,7 @@ alias gogit='cd ~/git'
 
 # Config Files
 alias viprofile='vim ~/.profile'
-alias sourcebf="source ~/.profile"
+alias srcprofile="source ~/.profile"
 alias vissh='vim /etc/ssh/sshd_config'
 
 # ===== Mac =====
@@ -97,5 +95,13 @@ alias syncssd='rsync -a -L -h -v --delete "/Users/drake/Pictures/Photography/" "
 alias syncwalli='rsync -a -L -h -v --delete "/Users/drake/Documents/Wallpaper Project/" "/Volumes/Drake-SSD/Red/Wallpaper Project/"'
 alias walli='python3 /Users/drake/git/pg/wallpaper.py'
 
+# Tmux
+alias tmuxa='tmux a -t'
+alias tmuxl='tmux ls'
+alias tmuxs='tmux new -s'
+alias tmuxk='tmux kill-session -t'
+alias tmuxks='tmux kill-session '
+alias sess='tmuxa sess'
+alias vhserver='tmuxa vhserver'
 
 clear
