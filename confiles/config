@@ -1,0 +1,4 @@
+Host mbp
+    Hostname 192.168.1.127
+    User pop_mbp
+    Port 22
