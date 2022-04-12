@@ -42,7 +42,7 @@ alias grep='grep --color=auto'
 alias ngrep='grep -rnwiI ./ -e'
 alias python='python3'
 alias vi='vim'
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias getip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias usync='rsync -rvuP'
 alias btop='python -m bpytop'
 alias jar='java -Xmx2G -Xms1G -jar'
@@ -90,7 +90,7 @@ alias goslime='cd ~/git/slime_server/source'
 alias gotensei='cd ~/git/TenseiPy/source'
 alias gojux='cd ~/git/jux.photos/jux_photos'
 alias gomc='cd ~/Games/Minecraft'
-
+alias cpprofile='cp ~/.profile ~/git/playground/confiles/'
 
 # === Django
 alias migrate='python manage.py makemigrations && python manage.py migrate'
