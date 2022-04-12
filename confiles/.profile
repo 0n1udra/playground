@@ -52,7 +52,7 @@ alias usync='rsync -rvuP'
 alias btop='python -m bpytop'
 alias jar='java -Xmx2G -Xms1G -jar'
 
-alias srcslime='source /home/0n1udra/pyenvs/slime_server/bin/activate'
+alias srcslime='source ~//pyenvs/slime_server/bin/activate'
 
 # === Config Files
 alias srcprofile="source ~/.profile"
@@ -62,14 +62,14 @@ alias vitmux='vim ~/.tmux.conf'
 alias vissh='vim /etc/ssh/sshd_config'
 
 # === Scripts
-alias tsetup='gogit && python playground/utils/tmux_setup.py'
-alias tsetupapp='gogit && python playground/utils/tmux_setup.py starttmux startapp'
-alias tsetupall='gogit && python playground/utils/tmux_setup.py starttmux startapp startbots attachtmux'
-alias startbots='gogit && python playground/utils/tmux_setup.py startbots'
-alias slimebot='srcslime && goslime && python slime_bot.py'
-alias sandownbot="gogit && python sandown_channel17/source/channel17_bot.py"
+alias tsetup='gogit && python playground/utils/tmux_setup.py starttmux'
+alias tsetupapp='python3 ~/git/playground/utils/tmux_setup.py starttmux startapp'
+alias tsetupall='python3 ~/git/playground/utils/tmux_setup.py starttmux startapp startbots attachtmux'
+alias startbots='python3 ~/git/playground/utils/tmux_setup.py startbots'
+alias slimebot='srcslime && python3 ~/git/slime_server/slime_bot.py'
+alias sandownbot="python3 ~/git/sandown_channel17/source/channel17_bot.py"
 
-alias gozomboid="cd '/home/0n1udra/.steam/steam/steamapps/common/Project Zomboid Dedicated Server'"
+alias gozomboid="cd '~/.steam/steam/steamapps/common/Project Zomboid Dedicated Server'"
 
 # === ls
 alias ls='ls -Fh'
@@ -138,6 +138,11 @@ hold shift  --  System Copy     |   shift-RC    --  System Paste
 LC - Left Click, Right Click
 "'
 alias a='shortcuts'
+
+# ===== Extra
+# Valheim
+alias vlog='cd ~/Games/valheim/log/console/vhserver-console.log | grep "/2022"'
+alias mc='java -server -Xmx4G -Xms2G -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:ParallelGCThreads=2 '
 
 clear
 
