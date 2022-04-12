@@ -44,7 +44,7 @@ alias python='python3'
 alias vi='vim'
 alias getip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias usync='rsync -rvuP'
-alias btop='python -m bpytop'
+alias btop='bpytop'
 alias jar='java -Xmx2G -Xms1G -jar'
 
 alias srcslime='source ~/pyenvs/slime_server/bin/activate'
