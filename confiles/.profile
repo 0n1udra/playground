@@ -15,14 +15,9 @@ export COLOR_YELLOW='\e[1;33m'
 # Highlight the user name when logged in as root.
 if [[ "${USER}" == "root" ]]; then
     #This only works if you use sudo -i not su. git prompt will break
-	userStyle="${COLOR_YELLOW}";
+	userStyle="${yellow}";
 	symbol="#"; else userStyle="${COLOR_LIGHT_RED}"; symbol="$"
 fi;
-
-# Highlight the hostname when connected via SSH.
-if [[ "${SSH_TTY}" ]]; then
-        hostStyle="${bold}${red}";
-else hostStyle="${yellow}"; fi;
 
 # Set the terminal title and prompt.
 PS1="\[${orange}\]\H"; # Host Computer name
@@ -52,7 +47,7 @@ alias usync='rsync -rvuP'
 alias btop='python -m bpytop'
 alias jar='java -Xmx2G -Xms1G -jar'
 
-alias srcslime='source ~//pyenvs/slime_server/bin/activate'
+alias srcslime='source ~/pyenvs/slime_server/bin/activate'
 
 # === Config Files
 alias srcprofile="source ~/.profile"
@@ -66,7 +61,7 @@ alias tsetup='gogit && python playground/utils/tmux_setup.py starttmux'
 alias tsetupapp='python3 ~/git/playground/utils/tmux_setup.py starttmux startapp'
 alias tsetupall='python3 ~/git/playground/utils/tmux_setup.py starttmux startapp startbots attachtmux'
 alias startbots='python3 ~/git/playground/utils/tmux_setup.py startbots'
-alias slimebot='srcslime && python3 ~/git/slime_server/slime_bot.py'
+alias slimebot='srcslime && python3 ~/git/slime_server/source/slime_bot.py'
 alias sandownbot="python3 ~/git/sandown_channel17/source/channel17_bot.py"
 
 alias gozomboid="cd '~/.steam/steam/steamapps/common/Project Zomboid Dedicated Server'"
