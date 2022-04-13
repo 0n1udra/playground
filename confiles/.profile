@@ -8,16 +8,11 @@ elif infocmp xterm-256color >/dev/null 2>&1; then
 if tput setaf 1 &> /dev/null; then 
     tput sgr0; bold=$(tput bold); reset=$(tput sgr0); blue=$(tput setaf 33); orange=$(tput setaf 166); red=$(tput setaf 124); white=$(tput setaf 15); yellow=$(tput setaf 136);
 else bold=''; reset="\e[0m"; orange="\e[1;33m"; red="\e[1;31m"; white="\e[1;37m"; yellow="\e[1;33m"; fi;
-export COLOR_GREEN='\e[0;32m'
-export COLOR_LIGHT_RED='\e[1;31m'
-export COLOR_YELLOW='\e[1;33m'
 
 # Highlight the user name when logged in as root.
-if [[ "${USER}" == "root" ]]; then
-    #This only works if you use sudo -i not su. git prompt will break
-	userStyle="${yellow}";
-	symbol="#"; else userStyle="${COLOR_LIGHT_RED}"; symbol="$"
-fi;
+if [[ "${USER}" == "root" ]]; then userStyle="${yellow}"; fi;
+if [[ "${USER}" == "arcpy" ]]; then userStyle="${blue}"; fi;
+if [[ "${USER}" == "0n1udra" ]]; then userStyle="${}"; fi;
 
 # Set the terminal title and prompt.
 PS1="\[${orange}\]\H"; # Host Computer name
