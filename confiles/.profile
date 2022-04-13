@@ -4,8 +4,12 @@ if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/n
 elif infocmp xterm-256color >/dev/null 2>&1; then
 	export TERM='xterm-256color'; fi;
 
-# ========== Color
-bold=''; reset="\e[0m"; orange="\e[1;33m"; red="\e[1;31m"; white="\e[1;37m"; yellow="\e[1;33m"; green="\e[0;32m"; blue="\e[0;34m";
+if tput setaf 1 &> /dev/null; then
+tput sgr0; bold=$(tput bold); reset=$(tput sgr0); blue=$(tput setaf 33); orange=$(tput setaf 166); red=$(tput setaf 124); white=$(tput setaf 15); yellow=$(tput setaf 136);
+else bold=''; reset="\e[0m"; orange="\e[1;33m"; red="\e[1;31m"; white="\e[1;37m"; yellow="\e[1;33m"; fi;
+export COLOR_GREEN='\e[0;32m'
+export COLOR_LIGHT_RED='\e[1;31m'
+export COLOR_YELLOW='\e[1;33m'
 
 # Highlight the user name when logged in as root.
 if [[ "${USER}" == "root" ]]; then userStyle="${white}"; fi;
