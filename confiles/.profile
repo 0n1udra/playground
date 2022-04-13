@@ -57,7 +57,7 @@ alias vitmux='vim ~/.tmux.conf'
 alias vissh='vim /etc/ssh/sshd_config'
 
 # === Scripts
-alias tsetup='gogit && python playground/utils/tmux_setup.py starttmux'
+alias tsetup='gogit && python3 playground/utils/tmux_setup.py starttmux'
 alias tsetupapp='python3 ~/git/playground/utils/tmux_setup.py starttmux startapp'
 alias tsetupall='python3 ~/git/playground/utils/tmux_setup.py starttmux startapp startbots attachtmux'
 alias startbots='python3 ~/git/playground/utils/tmux_setup.py startbots'
@@ -94,10 +94,10 @@ alias cpprofile='cp ~/.profile ~/git/playground/confiles/'
 alias cpaplay='scp -r arcpy:~/git/playground/ ~/git/'
 
 # === Django
-alias migrate='python manage.py makemigrations && python manage.py migrate'
-alias run='python manage.py runserver'
+alias migrate='python3 manage.py makemigrations && python3 manage.py migrate'
+alias run='python3 manage.py runserver'
 alias mrun='migrate && run'
-alias csuper='python manage.py createsuperuser'
+alias csuper='python3 manage.py createsuperuser'
 alias srcdjango='source ~/pyenv/django_env/bin/activate'
 
 

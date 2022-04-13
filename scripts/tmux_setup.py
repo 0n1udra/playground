@@ -35,6 +35,5 @@ if __name__ == '__main__':
     if 'startapp' in sys.argv:
         os.system(f'tmux send-keys -t {tmux_session_name}:1.0 bpytop ENTER')  # Start bpytop
     if 'startserver' in sys.argv:
-        os.system(f'tmux send-keys -t {tmux_session_name}:0.0 "srcslime && python ~/git/slime_server/source/run_bot.py startserver" ENTER')  # Start bpytop
-    if 'attachtmux' in sys.argv:
+        os.system(f'tmux send-keys -t {tmux_session_name}:0.0 "srcslime && python3 ~/git/slime_server/source/run_bot.py startserver" ENTER')  # Start bpytop if 'attachtmux' in sys.argv:
         os.system(f"tmux attach -t {tmux_session_name}")
