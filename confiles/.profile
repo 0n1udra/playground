@@ -5,7 +5,7 @@ elif infocmp xterm-256color >/dev/null 2>&1; then
 	export TERM='xterm-256color'; fi;
 
 # ========== Color
-bold=''; reset="\e[0m"; orange="\e[1;33m"; red="\e[1;31m"; white="\e[1;37m"; yellow="\e[1;33m"; green="\e[0;32m";
+bold=''; reset="\e[0m"; orange="\e[1;33m"; red="\e[1;31m"; white="\e[1;37m"; yellow="\e[1;33m"; green="\e[0;32m"; blue="\e[0;34m";
 
 # Highlight the user name when logged in as root.
 if [[ "${USER}" == "root" ]]; then userStyle="${white}"; fi;
