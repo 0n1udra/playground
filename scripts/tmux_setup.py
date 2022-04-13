@@ -30,8 +30,8 @@ if __name__ == '__main__':
     if 'starttmux' in sys.argv:
         start_tmux_session()
     if 'startbots' in sys.argv:
-        #os.system(f'tmux send-keys -t {tmux_session_name}:0.1 "slimebot" ENTER')  # Start slime_server bot
-        #os.system(f'tmux send-keys -t {tmux_session_name}:0.3 "sandownbot" ENTER')  # Start channel17 bot
+        os.system(f'tmux send-keys -t {tmux_session_name}:0.1 "slimebot" ENTER')  # Start slime_server bot
+        os.system(f'tmux send-keys -t {tmux_session_name}:0.3 "sandownbot" ENTER')  # Start channel17 bot
     if 'startapp' in sys.argv:
-        #os.system(f'tmux send-keys -t {tmux_session_name}:1.0 "ssh mbp13" ENTER')  # SSH MBP13
+        pass
     if 'attachtmux' in sys.argv: os.system(f"tmux attach -t {tmux_session_name}")

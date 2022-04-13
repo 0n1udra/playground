@@ -1,0 +1,47 @@
+===== Setup sudo permission:
+sudo usermod -aG sudo NAME
+or: sudo adduser bob sudo
+
+===== Goes in /etc/apt/sources.list
+deb http://deb.debian.org/debian/ bullseye main
+deb-src http://deb.debian.org/debian/ bullseye main
+
+deb http://security.debian.org/debian-security bullseye-security main contrib
+deb-src http://security.debian.org/debian-security bullseye-security main contrib
+
+deb http://deb.debian.org/debian/ bullseye-updates main contrib
+deb-src http://deb.debian.org/debian/ bullseye-updates main contrib
+
+===== Update and install:
+sudo apt update -y && sudo apt upgrade -y
+git, tmux, neofetch, bpytop, 
+
+===== Set date/time
+timedatectl list-timezones
+sudo timedatectl set-timezone America/New_York
+
+===== Get Python pip:
+curl https://bootstrap.pypa.io/get-pip.py > get-pip.py && python3 get-pip.py
+
+Download realvnc server from 'manage.realvnc.com' and with this command:
+sudo dpkg -i FILE
+
+===== Setup ufw firewall:
+sudo apt install ufw -y
+
+Only do this part need IPv6:
+sudo vi /etc/default/ufw
+IPV6=yes
+
+Setup defaults and allow ssh.
+sudo ufw default deny incoming && sudo ufw default allow outgoing && sudo ufw allow ssh
+sudo ufw enable
+
+E.g. for minecraft.
+sudo ufw allow 25565/tcp && sudo ufw allow 25565/udp && sudo ufw reload
+
+===== Install java openjdk and jre 17:
+sudo apt install openjdk-17-jdk openjdk-17-jre -y
+
+
+
