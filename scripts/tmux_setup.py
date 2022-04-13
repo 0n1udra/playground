@@ -17,12 +17,12 @@ def start_tmux_session():
 
     # === Another window with 2 panes
     os.system(f'tmux new-window -t {tmux_session_name} && \
-tmux rename-window -t {tmux_session_name}:2 More && \
-tmux split-window -v -t {tmux_session_name}:2.0')
+tmux rename-window -t {tmux_session_name}:1 More')
+#tmux split-window -v -t {tmux_session_name}:1.0')
 
     # Sets tmux powerline theme.
-    os.system(f'tmux send-keys -t {tmux_session_name}:2.0 "vim" ENTER && \
-tmux send-keys -t {tmux_session_name}:2.0 ":q!" ENTER')
+    os.system(f'tmux send-keys -t {tmux_session_name}:1.0 "vim" ENTER && \
+tmux send-keys -t {tmux_session_name}:1.0 ":q!" ENTER')
 
     time.sleep(1)
 
@@ -33,5 +33,6 @@ if __name__ == '__main__':
         os.system(f'tmux send-keys -t {tmux_session_name}:0.1 "slimebot" ENTER')  # Start slime_server bot
         os.system(f'tmux send-keys -t {tmux_session_name}:0.3 "sandownbot" ENTER')  # Start channel17 bot
     if 'startapp' in sys.argv:
-        pass
-    if 'attachtmux' in sys.argv: os.system(f"tmux attach -t {tmux_session_name}")
+        os.system(f'tmux send-keys -t {tmux_session_name}:1.0 bpytop ENTER')  # Start bpytop
+    if 'attachtmux' in sys.argv:
+        os.system(f"tmux attach -t {tmux_session_name}")
