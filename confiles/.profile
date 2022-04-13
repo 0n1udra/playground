@@ -87,7 +87,7 @@ alias gosandown='cd ~/git/sandown_channel17/source'
 alias goplay='cd ~/git/playground/'
 
 alias cpprofile='cp ~/.profile ~/git/playground/confiles/'
-alias updateprofile'cp ~/git/playground/confiles/.profile ~/'
+alias updateprofile='cp ~/git/playground/confiles/.profile ~/'
 alias cpaplay='scp -r arcpy:~/git/playground/ ~/git/'
 
 # === Django
