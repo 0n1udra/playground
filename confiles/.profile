@@ -65,6 +65,7 @@ alias slimebot='srcslime && python3 ~/git/slime_server/source/slime_bot.py'
 alias sandownbot="srcslime && python3 ~/git/sandown_channel17/source/channel17_bot.py"
 
 alias gozomboid="cd '~/.steam/steam/steamapps/common/Project Zomboid Dedicated Server'"
+alias gomc='cd ~/Games/Minecraft'
 
 # === ls
 alias ls='ls -Fh'
@@ -88,8 +89,9 @@ alias gogit='cd ~/git'
 alias goconfig='cd ~/git/Personal/Config_Files'
 alias goslime='cd ~/git/slime_server/source'
 alias gotensei='cd ~/git/TenseiPy/source'
-alias gojux='cd ~/git/jux.photos/jux_photos'
-alias gomc='cd ~/Games/Minecraft'
+alias gosandown='cd ~/git/sandown_channel17/source'
+alias goplay='cd ~/git/playground/'
+
 alias cpprofile='cp ~/.profile ~/git/playground/confiles/'
 alias cpaplay='scp -r arcpy:~/git/playground/ ~/git/'
 
