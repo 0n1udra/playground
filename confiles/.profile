@@ -5,21 +5,20 @@ elif infocmp xterm-256color >/dev/null 2>&1; then
 	export TERM='xterm-256color'; fi;
 
 # ========== Color
-if tput setaf 1 &> /dev/null; then 
-    tput sgr0; bold=$(tput bold); reset=$(tput sgr0); blue=$(tput setaf 33); orange=$(tput setaf 166); red=$(tput setaf 124); white=$(tput setaf 15); yellow=$(tput setaf 136);
-else bold=''; reset="\e[0m"; orange="\e[1;33m"; red="\e[1;31m"; white="\e[1;37m"; yellow="\e[1;33m"; fi;
+bold=''; reset="\e[0m"; orange="\e[1;33m"; red="\e[1;31m"; white="\e[1;37m"; yellow="\e[1;33m"; green="\e[0;32m";
 
 # Highlight the user name when logged in as root.
-if [[ "${USER}" == "root" ]]; then userStyle="${yellow}"; fi;
+if [[ "${USER}" == "root" ]]; then userStyle="${white}"; fi;
 if [[ "${USER}" == "arcpy" ]]; then userStyle="${blue}"; fi;
-if [[ "${USER}" == "0n1udra" ]]; then userStyle="${}"; fi;
+if [[ "${USER}" == "pop_mbp" ]]; then userStyle="${yellow}"; fi;
+if [[ "${USER}" == "0n1udra" ]]; then userStyle="${red}"; fi;
 
 # Set the terminal title and prompt.
 PS1="\[${orange}\]\H"; # Host Computer name
 PS1+="\[${white}\]>";
 PS1+="\[${userStyle}\]\u"; # username
 PS1+="\[${white}\]>";
-PS1+="\[${COLOR_GREEN}\]\w"; # working directory full path
+PS1+="\[${green}\]\w"; # working directory full path
 PS1+="\[${white}\]\n> \[${reset}\]"; # `$/#` (and reset color)
 export PS1;
 
@@ -137,6 +136,7 @@ alias a='shortcuts'
 # Valheim
 alias vlog='cd ~/Games/valheim/log/console/vhserver-console.log | grep "/2022"'
 alias mc='java -server -Xmx4G -Xms2G -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:ParallelGCThreads=2 '
+alias catsys='cat ~/system_log.txt'
 
 clear
 
