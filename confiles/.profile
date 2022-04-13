@@ -91,6 +91,7 @@ alias gotensei='cd ~/git/TenseiPy/source'
 alias gojux='cd ~/git/jux.photos/jux_photos'
 alias gomc='cd ~/Games/Minecraft'
 alias cpprofile='cp ~/.profile ~/git/playground/confiles/'
+alias cpaplay='scp -r arcpy:~/git/playground/ ~/git/'
 
 # === Django
 alias migrate='python manage.py makemigrations && python manage.py migrate'
