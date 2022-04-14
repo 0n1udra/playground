@@ -6,8 +6,8 @@ elif infocmp xterm-256color >/dev/null 2>&1; then
 
 # ========== Color
 if tput setaf 1 &> /dev/null; then
-tput sgr0; bold=$(tput bold); reset=$(tput sgr0); blue=$(tput setaf 33); orange=$(tput setaf 166); red=$(tput setaf 124); white=$(tput setaf 15); yellow=$(tput setaf 136);
-else bold=''; reset="\e[0m"; orange="\e[1;33m"; red="\e[1;31m"; white="\e[1;37m"; yellow="\e[1;33m"; green="\e[0;32m"; blue="\e[0;34m"; fi;
+tput sgr0; bold=$(tput bold); reset=$(tput sgr0); blue=$(tput setaf 33); orange=$(tput setaf 166); red=$(tput setaf 160); white=$(tput setaf 15); yellow=$(tput setaf 136); green=$(tput setaf 40);
+else bold=''; reset="\e[0m"; orange="\e[1;33m"; red="\e[1;31m"; white="\e[1;37m"; yellow="\e[1;33m"; blue="\e[0;34m"; green="\e[1;32m"; fi;
 export COLOR_NC='\e[0m' # No Color
 export COLOR_BLACK='\e[0;30m'
 export COLOR_GRAY='\e[1;30m'
@@ -71,10 +71,10 @@ alias vitmux='vim ~/.tmux.conf'
 alias vissh='vim /etc/ssh/sshd_config'
 
 # === Scripts
-alias tsetup='gogit && python3 playground/utils/tmux_setup.py starttmux'
-alias tsetupapp='python3 ~/git/playground/utils/tmux_setup.py starttmux startapp'
-alias tsetupall='python3 ~/git/playground/utils/tmux_setup.py starttmux startapp startbots attachtmux'
-alias startbots='python3 ~/git/playground/utils/tmux_setup.py startbots'
+alias tsetup='gogit && python3 playground/scripts/tmux_setup.py starttmux'
+alias tsetupapp='python3 ~/git/playground/scripts/tmux_setup.py starttmux startapp'
+alias tsetupall='python3 ~/git/playground/scripts/tmux_setup.py starttmux startapp startbots attachtmux'
+alias startbots='python3 ~/git/playground/scripts/tmux_setup.py startbots'
 alias slimebot='srcslime && python3 ~/git/slime_server/source/slime_bot.py'
 alias sandownbot="srcslime && python3 ~/git/sandown_channel17/source/channel17_bot.py"
 
@@ -157,6 +157,8 @@ alias a='shortcuts'
 alias vlog='cd ~/Games/valheim/log/console/vhserver-console.log | grep "/2022"'
 alias mc='java -server -Xmx4G -Xms2G -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:ParallelGCThreads=2 '
 alias catsys='cat ~/system_log.txt'
+
+alias wolarc='wakeonlan 00:22:4D:69:AA:CA'
 
 clear
 
