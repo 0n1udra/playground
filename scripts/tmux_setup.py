@@ -48,7 +48,5 @@ if __name__ == '__main__':
             lprint(ctx, "ERROR: Opening bpytop in sess:1.0.")
 
     if 'startserver' in sys.argv:
-        if os.system(f'tmux send-keys -t {tmux_session_name}:0.0 "srcslime && python3 ~/git/slime_server/source/run_bot.py startserver" ENTER'):  # Start bpytop if 'attachtmux' in sys.argv:
+        if os.system(f'tmux send-keys -t {tmux_session_name}:0.0 "srcslime && python3 ~/git/slime_server/source/run_bot.py startserver" ENTER'):
             lprint(ctx, "ERROR: Executing run_bot.py in sess:0.0.")
-        if os.system(f"tmux attach -t {tmux_session_name}"):
-            lprint(ctx, "ERROR: Attaching tmux sess.")

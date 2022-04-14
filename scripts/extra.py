@@ -1,6 +1,9 @@
-import datetime
+import datetime, os
 
-log_file = '~/system_log.txt'
+log_file = f'/home/{os.getlogin()}/system_log.txt'
+if not os.path.exists(log_file):
+    file = open(log_file, 'w+')
+    file.close()
 
 def lprint(ctx, text):
     """Prints and Logs events in file."""
