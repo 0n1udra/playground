@@ -80,7 +80,7 @@ alias startbots='python3 ~/git/playground/scripts/tmux_setup.py startbots'
 alias slimebot='srcslime && python3 ~/git/slime_server/source/slime_bot.py'
 alias sandownbot="srcslime && python3 ~/git/sandown_channel17/source/channel17_bot.py"
 
-alias gosteam="cd '~/.steam/steam/steamapps/common/"
+alias gosteam="cd ~/.steam/steam/steamapps/common/"
 alias gomc='cd ~/Games/Minecraft'
 
 # === ls
