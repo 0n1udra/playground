@@ -20,4 +20,4 @@ tmux send-keys -t $session:0.3 "sandownbot" ENTER
 
 tmux send-keys -t $session:1.0 bpytop ENTER
 
-tmux send-keys -t $session:0.0 "srcslime && python3 ~/git/slime_server/source/run_bot.py startserver" ENTER
+tmux send-keys -t $session:0.0 "srcslime && python3 ~/git/slime_server/source/run_bot.py --nohup startserver" ENTER

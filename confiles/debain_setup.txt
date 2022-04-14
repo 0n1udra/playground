@@ -3,18 +3,27 @@ sudo usermod -aG sudo NAME
 or: sudo adduser bob sudo
 
 ===== Goes in /etc/apt/sources.list
-deb http://deb.debian.org/debian/ bullseye main
-deb-src http://deb.debian.org/debian/ bullseye main
+deb http://deb.debian.org/debian/ bullseye main contrib non-free
+deb-src http://deb.debian.org/debian/ bullseye main contrib non-free
 
-deb http://security.debian.org/debian-security bullseye-security main contrib
-deb-src http://security.debian.org/debian-security bullseye-security main contrib
+deb http://security.debian.org/debian-security bullseye-security main contrib non-free
+deb-src http://security.debian.org/debian-security bullseye-security main contrib non-free
 
-deb http://deb.debian.org/debian/ bullseye-updates main contrib
-deb-src http://deb.debian.org/debian/ bullseye-updates main contrib
+deb http://deb.debian.org/debian/ bullseye-updates main contrib contrib non-free
+deb-src http://deb.debian.org/debian/ bullseye-updates main contrib contrib non-free
+
+non-free: packages are packages not complying to the Debian Free Software Guidelines
+contrib: contrib packages are packages that do comply with the DFSG, but depend on non-free packages,
+or which depend on some non-free software downloaded (by the package or having to be downloaded manually) to work properly.
+So they don't end up in main
+Remove contrib and/or non-free for security purposes, but you won't be able to update/install some programs
 
 ===== Update and install:
 sudo apt update -y && sudo apt upgrade -y
-git, tmux, neofetch, bpytop, 
+git, tmux, neofetch, bpytop,
+
+If missing command 'add-apt-repository' use:
+sudo apt-get install software-properties-common
 
 ===== Set date/time
 timedatectl list-timezones
@@ -43,5 +52,20 @@ sudo ufw allow 25565/tcp && sudo ufw allow 25565/udp && sudo ufw reload
 ===== Install java openjdk and jre 17:
 sudo apt install openjdk-17-jdk openjdk-17-jre -y
 
+===== Install steam/steamcmd
+sudo apt install steam -y
+sudo add-apt-repository multiverse
+sudo dpkg --add-architecture i386
+sudo apt update
+sudo apt install lib32gcc-s1 steamcmd -y
 
+===== Steam
+Install valheim dedicated server: steamcmd +login anonymous +force_install_dir +app_update 896660 validate +exit
+Valheim Server AppID: 896660
+Zomboid Server AppID: 380870
+Install defaults to ~/Steam/
+
+Update commands
+steamcmd +login anonymous +app_update 896660 validate +exit
+steamcmd +login anonymous +app_update 380870 validate +exit
 
