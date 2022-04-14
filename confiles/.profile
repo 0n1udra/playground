@@ -1,3 +1,5 @@
+# Set user. Needed because this is missing when go into tmux session.
+USER=$(whoami)
 #                   ========== Terminal UI ==========
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
 	export TERM='gnome-256color';
@@ -6,7 +8,7 @@ elif infocmp xterm-256color >/dev/null 2>&1; then
 
 # ========== Color
 if tput setaf 1 &> /dev/null; then
-tput sgr0; bold=$(tput bold); reset=$(tput sgr0); blue=$(tput setaf 33); orange=$(tput setaf 166); red=$(tput setaf 160); white=$(tput setaf 15); yellow=$(tput setaf 22); green=$(tput setaf 40);
+tput sgr0; bold=$(tput bold); reset=$(tput sgr0); blue=$(tput setaf 33); orange=$(tput setaf 166); red=$(tput setaf 160); white=$(tput setaf 15); yellow=$(tput setaf 11); green=$(tput setaf 40);blue=$(tput setaf 21);
 else bold=''; reset="\e[0m"; orange="\e[1;33m"; red="\e[1;31m"; white="\e[1;37m"; yellow="\e[1;33m"; blue="\e[0;34m"; green="\e[1;32m"; fi;
 export COLOR_NC='\e[0m' # No Color
 export COLOR_BLACK='\e[0;30m'
