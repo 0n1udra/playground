@@ -16,8 +16,9 @@ def start_tmux_session():
     # Renames window, create 2 bottom panes (3 total for first window)
     if os.system(f'tmux rename-window -t {tmux_session_name} Server \
 && tmux split-window -v -t {tmux_session_name}:0.0 \
-&& tmux split-window -h -t {tmux_session_name}:0.0 \
-&& tmux split-window -h -t {tmux_session_name}:0.2'):
+&& tmux split-window -v -t {tmux_session_name}:0.0 \
+&& tmux split-window -v -t {tmux_session_name}:0.2 \
+&& tmux split-window -v -t {tmux_session_name}:0.3'):
         lprint(ctx, 'ERROR:: Creating panes in window 0.')
 
     # === Another window with 2 panes
@@ -38,15 +39,15 @@ if __name__ == '__main__':
         start_tmux_session()
 
     if 'startbots' in sys.argv:
-        if os.system(f'tmux send-keys -t {tmux_session_name}:0.1 "slimebot" ENTER'):  # Start slime_server bot
-            lprint(ctx, "ERROR: Executing 'slimebot' in sess:0.1.")
-        if os.system(f'tmux send-keys -t {tmux_session_name}:0.3 "sandownbot" ENTER'):  # Start channel17 bot
-            lprint(ctx, "ERROR: Executing 'sandownbot' in sess:0.3.")
+        if os.system(f'tmux send-keys -t {tmux_session_name}:0.3 "slimebot" ENTER'):  # Start slime_server bot
+            lprint(ctx, "ERROR: Executing 'slimebot' in sess:0.3.")
+        if os.system(f'tmux send-keys -t {tmux_session_name}:0.4 "sandownbot" ENTER'):  # Start channel17 bot
+            lprint(ctx, "ERROR: Executing 'sandownbot' in sess:0.4.")
 
-    if 'startapp' in sys.argv:
+    if 'startapps' in sys.argv:
         if os.system(f'tmux send-keys -t {tmux_session_name}:1.0 bpytop ENTER'):  # Start bpytop
             lprint(ctx, "ERROR: Opening bpytop in sess:1.0.")
 
-    if 'startserver' in sys.argv:
+    if 'startservers' in sys.argv:
         if os.system(f'tmux send-keys -t {tmux_session_name}:0.0 "srcslime && python3 ~/git/slime_server/source/run_bot.py startserver" ENTER'):
             lprint(ctx, "ERROR: Executing run_bot.py in sess:0.0.")
