@@ -14,5 +14,5 @@ Debian: sudo apt-get install fonts-powerline
 
 ##Misc:
 cp bpytop.conf ~/.config/bpytop
-
+cp 'Profile 1.profile' ~/.local/share/konsole
 
