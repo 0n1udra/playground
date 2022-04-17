@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import time, sys, os
 from extra import lprint
 
