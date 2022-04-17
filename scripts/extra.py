@@ -1,6 +1,6 @@
 import datetime, os
 
-log_file = f'/home/{os.getlogin()}/system_log.txt'
+log_file = f'{os.getenv("HOME")}/system_log.txt'
 if not os.path.exists(log_file):
     file = open(log_file, 'w+')
     file.close()
