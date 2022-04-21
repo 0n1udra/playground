@@ -16,11 +16,12 @@ def powerdown(wait_time=30):
     # Give 30s before system power off
     time.sleep(wait_time)
     # System power off
-    os.system(f"systemctl poweroff")
 
 if __name__ == '__main__':
     if 'ups' in sys.argv:
         reason = 'CyberPower Trigger'
 
     powerdown()
-
+    if '--restart' in sys.argv:
+        os.system(f"systemctl poweroff")
+    else: os.system(f"systemctl reboot")
