@@ -10,8 +10,8 @@ def powerdown(wait_time=40):
     os.system(f"tmux send-keys -t sess:0.1 C-c")
     os.system(f"tmux send-keys -t sess:0.2 'quit' ENTER")
     # Halts bots
-    os.system(f"tmux send-keys -t sess:0.3 C-c")
-    os.system(f"tmux send-keys -t sess:0.4 C-c")
+    os.system(f"tmux send-keys -t sess:0.5 C-c")
+    os.system(f"tmux send-keys -t sess:0.6 C-c")
 
     # Give 30s before system power off
     time.sleep(wait_time)
