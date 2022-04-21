@@ -2,7 +2,7 @@
 import os
 
 sess_name = 'sess'
-ctx = 'water.py'
+ctx = 'watcher.py'
 
 # Checks if tmux session exists. os.system will return 0 if successful, so if anything else but zero it probably failed.
 if os.system(f'tmux ls | grep {sess_name}'):
@@ -20,7 +20,8 @@ if os.system(f'tmux ls | grep {sess_name}'):
             if os.system('ping -c 2 www.google.com'):
                 time.sleep(30)
             else:
-                os.system(f"python3 ~/git/playground/scripts/matsumoto.py 'Internet Restored'")
+                os.system(f"python3 ~/git/playground/scripts/matsumoto.py 'Rebooted'")
+                lprint(ctx, "Internet restored")
                 break
 
 
