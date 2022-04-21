@@ -29,10 +29,12 @@ sudo apt-get install software-properties-common
 timedatectl list-timezones
 sudo timedatectl set-timezone America/New_York
 
-===== Allow all users to use 'systemctl poweroff' command (without sudo)
-Create a new file here with vim:
-vim /etc/polkit-1/localauthority/50-local.d/allow_all_users_to_shutdown.pkla
+===== Allow all users to power off system
+Add this to /etc/sudoers:
+arcpy ALL=NOPASSWD: /sbin/halt, /sbin/reboot, /sbin/poweroff, /sbin/shutdown
 
+OR Create a new file here with vim:
+vim /etc/polkit-1/localauthority/50-local.d/allow_all_users_to_shutdown.pkla
 Add this:
 [Allow all users to shutdown]
 Identity=unix-user:*
@@ -41,6 +43,7 @@ ResultActive=yes
 ResultAny=yes
 
 Reboot daemon: sudo systemctl daemon-reload
+can use 'systemctl shutdown' without sudo.
 
 ===== Get Python pip:
 curl https://bootstrap.pypa.io/get-pip.py > get-pip.py && python3 get-pip.py

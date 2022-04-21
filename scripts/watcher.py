@@ -9,7 +9,7 @@ if os.system(f'tmux ls | grep {sess_name}'):
     from extra import lprint
 
     lprint(ctx, "INFO: Tmux 'sess' not found. Executing tmux_setup.py")
-    if os.system(f'python3 ~/git/playground/scripts/tmux-setup.py starttmux startbots start servers startapps attachtmux'):
+    if os.system(f'python3 ~/git/playground/scripts/tmux-setup.py starttmux startbots startservers startapps attachtmux'):
         lprint(ctx, "ERROR: Executing tmux-setup.py")
     else:
         lprint(ctx, "INFO: Finished tmux-setup.py")

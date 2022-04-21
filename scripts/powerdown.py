@@ -23,5 +23,5 @@ if __name__ == '__main__':
 
     powerdown()
     if '--restart' in sys.argv:
-        os.system(f"systemctl reboot")
-    else: os.system(f"systemctl poweroff")
+        os.system(f"sudo reboot now")
+    else: os.system(f"sudo shutdown now")
