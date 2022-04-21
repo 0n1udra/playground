@@ -52,6 +52,8 @@ set -o vi
 alias sudo='sudo '
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+alias lsblko='lsblk -o KNAME,TYPE,SIZE,MODEL'
+alias powerdown='python3 ~/git/playground/scripts/powerdown.py'
 
 # Always enable colored `grep` output
 alias grep='grep --color=auto'
@@ -107,6 +109,7 @@ alias goslime='cd ~/git/slime_server/source'
 alias gotensei='cd ~/git/TenseiPy/source'
 alias gosandown='cd ~/git/sandown_channel17/source'
 alias goplay='cd ~/git/playground/'
+alias goscripts='cd ~/git/playground/scripts'
 
 alias cpprofile='cp ~/.profile ~/git/playground/confiles/'
 alias updateprofile='cp ~/git/playground/confiles/.profile ~/'
@@ -155,11 +158,9 @@ LC - Left Click, Right Click
 alias a='shortcuts'
 
 # ===== Extra
-# Valheim
 alias vlog='cd ~/Games/valheim/log/console/vhserver-console.log | grep "/2022"'
 alias mc='java -server -Xmx4G -Xms2G -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:ParallelGCThreads=2 '
-alias catsys='cat ~/system_log.txt'
-
+alias catsys='cat ~/system.log'
 alias wolarc='wakeonlan 00:22:4D:69:AA:CA'
 
 clear

@@ -12,7 +12,7 @@ def start_tmux_session():
 
     # Start tmux session
     if os.system(f'tmux new -d -s {tmux_session_name}'):
-        lprint(ctx, 'ERROR:: Starting tmux session.')
+        lprint(ctx, 'ERROR: Starting tmux session.')
 
     # === Server window
     # Renames window, create 2 bottom panes (3 total for first window)
@@ -21,18 +21,24 @@ def start_tmux_session():
 && tmux split-window -v -t {tmux_session_name}:0.0 \
 && tmux split-window -v -t {tmux_session_name}:0.2 \
 && tmux split-window -v -t {tmux_session_name}:0.3'):
-        lprint(ctx, 'ERROR:: Creating panes in window 0.')
+        lprint(ctx, 'ERROR: Creating panes in window 0.')
 
     # === Another window with 2 panes
     if os.system(f'tmux new-window -t {tmux_session_name} && \
 tmux rename-window -t {tmux_session_name}:1 More'):
 #tmux split-window -v -t {tmux_session_name}:1.0')
-        lprint(ctx, 'ERROR:: Creating second window.')
+        lprint(ctx, 'ERROR: Creating second window.')
 
     # Sets tmux powerline theme.
     if os.system(f'tmux send-keys -t {tmux_session_name}:1.0 "vim" ENTER && \
 tmux send-keys -t {tmux_session_name}:1.0 ":q!" ENTER'):
-        lprint(ctx, 'ERROR:: Setting tmux theme in sess:1.0.')
+        lprint(ctx, 'ERROR: Setting tmux theme in sess:1.0.')
+
+    # === Extra panel
+    if os.system(f'tmux new-window -t {tmux_session_name} && \
+tmux split-window -v -t {tmux_session_name}:2.0'):
+        lprint(ctx, 'ERROR: Creating third window.')
+
 
     time.sleep(1)
 
