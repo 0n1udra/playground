@@ -3,7 +3,7 @@ import time, sys, os
 from extra import lprint
 
 reason = 'N/A'
-def powerdown(wait_time=30):
+def powerdown(wait_time=40):
     lprint('powerdown.py', f"INFO: System powering down: {reason}")
     # Halts games
     os.system(f"tmux send-keys -t sess:0.0 'stop' ENTER")
