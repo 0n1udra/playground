@@ -33,7 +33,8 @@ export COLOR_WHITE='\e[1;37m'
 if [[ "${USER}" == "root" ]]; then userStyle="${white}"; fi;
 if [[ "${USER}" == "arcpy" ]]; then userStyle="${blue}"; fi;
 if [[ "${USER}" == "pop_mbp" ]]; then userStyle="${yellow}"; fi;
-if [[ "${USER}" == "0n1udra" ]]; then userStyle="${red}"; fi;
+if [[ "${USER}" == "0n1udra-MBP" ]]; then userStyle="${red}"; fi;
+if [[ "${USER}" == "0n1udra" ]]; then userStyle="${COLOR_CYAN}"; fi;
 
 # Set the terminal title and prompt.
 PS1="\[${orange}\]\H"; # Host Computer name
