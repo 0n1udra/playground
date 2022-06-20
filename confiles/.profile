@@ -54,7 +54,7 @@ alias sudo='sudo '
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 alias lsblko='lsblk -o KNAME,TYPE,SIZE,MODEL'
-alias powerdown='python3 ~/git/playground/scripts/powerdown.py'
+alias gosteam="cd ~/.steam/steam/steamapps/common/"
 
 # Always enable colored `grep` output
 alias grep='grep --color=auto'
@@ -68,6 +68,16 @@ alias jar='java -Xmx2G -Xms1G -jar'
 
 alias srcslime='source ~/pyenvs/slime_server/bin/activate'
 
+# === Paths
+alias gomc='cd ~/Games/Minecraft'
+alias gogit='cd ~/git'
+alias goconfig='cd ~/git/Personal/Config_Files'
+alias goslime='cd ~/git/slime_server/source'
+alias gotensei='cd ~/git/TenseiPy/source'
+alias gosandown='cd ~/git/sandown_channel17/source'
+alias goplay='cd ~/git/playground/'
+alias goscripts='cd ~/git/playground/scripts'
+
 # === Config Files
 alias srcprofile="source ~/.profile"
 alias viprofile='vim ~/.profile'
@@ -76,15 +86,15 @@ alias vitmux='vim ~/.tmux.conf'
 alias vissh='vim /etc/ssh/sshd_config'
 
 # === Scripts
+alias powerdown='python3 ~/git/playground/scripts/powerdown.py'
 alias tsetup='gogit && python3 playground/scripts/tmux_setup.py starttmux'
 alias tsetupapp='python3 ~/git/playground/scripts/tmux_setup.py starttmux startapp'
 alias tsetupall='python3 ~/git/playground/scripts/tmux_setup.py starttmux startapp startbots attachtmux'
 alias startbots='python3 ~/git/playground/scripts/tmux_setup.py startbots'
 alias slimebot='srcslime && goslime && python3 ~/git/slime_server/source/slime_bot.py'
 alias sandownbot="srcslime && gosandown && python3 ~/git/sandown_channel17/source/channel17_bot.py"
+alias dmsg='python ~/git/playground/scripts/matsumoto.py'
 
-alias gosteam="cd ~/.steam/steam/steamapps/common/"
-alias gomc='cd ~/Games/Minecraft'
 
 # === ls
 alias ls='ls -Fh'
@@ -104,14 +114,6 @@ alias sess='tmuxa sess'
 alias vhserver='tmuxa vhserver'
 
 # === git
-alias gogit='cd ~/git'
-alias goconfig='cd ~/git/Personal/Config_Files'
-alias goslime='cd ~/git/slime_server/source'
-alias gotensei='cd ~/git/TenseiPy/source'
-alias gosandown='cd ~/git/sandown_channel17/source'
-alias goplay='cd ~/git/playground/'
-alias goscripts='cd ~/git/playground/scripts'
-
 alias cpprofile='cp ~/.profile ~/git/playground/confiles/'
 alias updateprofile='cp ~/git/playground/confiles/.profile ~/'
 alias cpaplay='scp -r arcpy:~/git/playground/ ~/git/'
@@ -161,7 +163,8 @@ alias a='shortcuts'
 # ===== Extra
 alias vlog='cd ~/Games/valheim/log/console/vhserver-console.log | grep "/2022"'
 alias mc='java -server -Xmx4G -Xms2G -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:ParallelGCThreads=2 '
-alias catsys='cat ~/system.log'
+alias syslog='cat ~/system.log'
+alias pwrlog='cat /var/log/pwrstatd.log'
 alias wolarc='wakeonlan 00:22:4D:69:AA:CA'
 
 clear
