@@ -21,6 +21,7 @@ procs += get_proc('league')
 procs += get_proc('riot')
 procs += get_proc('lutris')
 procs += get_proc('start')
+procs += get_proc('explorer')
 
 
 if __name__ == '__main__':
@@ -30,7 +31,11 @@ if __name__ == '__main__':
         for i in procs: print(i)
 
     if 'kill' in sys.argv:
-        kill_procs(procs)
+        if len(sys.argv) > 2:
+            procs = get_proc(sys.argv[2])
+            kill_procs(procs)
+        else:
+            kill_procs(procs)
         exit()
 
     if len(sys.argv) > 1:
