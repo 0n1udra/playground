@@ -9,7 +9,7 @@ if os.system(f'tmux ls | grep {sess_name}'):
     from extra import lprint
 
     lprint(ctx, "INFO: Tmux 'sess' not found. Executing tmux_setup.py")
-    if os.system(f'python3 ~/git/playground/scripts/tmux_setup.py starttmux startbots startservers startapps attachtmux'):
+    if os.system(f'python3 ~/git/playground/scripts/tmux_setup.py starttmux startbots startapps attachtmux'):
         lprint(ctx, "ERROR: Executing tmux_setup.py")
     else:
         lprint(ctx, "INFO: Finished tmux_setup.py")
@@ -21,5 +21,5 @@ if os.system(f'tmux ls | grep {sess_name}'):
                 time.sleep(30)
             else:
                 os.system(f"python3 ~/git/playground/scripts/matsumoto.py 'Rebooted'")
-                lprint(ctx, "Internet restored")
+                lprint(ctx, "INFO: Internet restored")
                 break

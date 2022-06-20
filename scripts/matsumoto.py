@@ -1,4 +1,7 @@
 import datetime, discord, sys, os
+from extra import lprint
+
+ctx = 'matsumoto.py'
 
 token_file = f'{os.getenv("HOME")}/keys/matsumoto.token'
 bot_path = os.path.dirname(os.path.abspath(__file__))
@@ -13,8 +16,6 @@ else:
 
 bot = discord.Client(command_prefix='.')
 
-def lprint(msg): print(f'{datetime.today()} | {msg}')
-
 msg = ''
 
 @bot.event
@@ -27,7 +28,8 @@ async def on_ready():
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
-        msg = sys.argv[1]
+        msg = ' '.join(sys.argv[1:])
+        lprint(ctx, f"INFO: Message sent: {msg}")
 
         bot.run(TOKEN)
 
