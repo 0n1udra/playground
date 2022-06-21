@@ -22,7 +22,8 @@ def start_tmux_session():
 && tmux split-window -v -t {tmux_session_name}:0.2 \
 && tmux split-window -h -t {tmux_session_name}:0.3 \
 && tmux split-window -h -t {tmux_session_name}:0.2 \
-&& tmux split-window -h -t {tmux_session_name}:0.1'):
+&& tmux split-window -h -t {tmux_session_name}:0.1 \
+&& tmux split-window -h -t {tmux_session_name}:0.0'):
         lprint(ctx, 'ERROR: Creating panes in window 0.')
 
     # === Another window with 2 panes
@@ -51,8 +52,10 @@ if __name__ == '__main__':
     if 'startbots' in sys.argv:
         if os.system(f'tmux send-keys -t {tmux_session_name}:0.5 "slimebot" ENTER'):  # Start slime_server bot
             lprint(ctx, "ERROR: Executing 'slimebot' in sess:0.5.")
-        if os.system(f'tmux send-keys -t {tmux_session_name}:0.6 "sandownbot" ENTER'):  # Start channel17 bot
+        if os.system(f'tmux send-keys -t {tmux_session_name}:0.6 "gogit && cd liquor_bot/source && python liquor_bot.py" ENTER'):  # Start channel17 bot
             lprint(ctx, "ERROR: Executing 'sandownbot' in sess:0.6.")
+        if os.system(f'tmux send-keys -t {tmux_session_name}:0.7 "sandownbot" ENTER'):  # Start channel17 bot
+            lprint(ctx, "ERROR: Executing 'sandownbot' in sess:0.7.")
 
     if 'startapps' in sys.argv:
         if os.system(f'tmux send-keys -t {tmux_session_name}:1.0 bpytop ENTER'):  # Start bpytop

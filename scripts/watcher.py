@@ -17,7 +17,7 @@ if os.system(f'tmux ls | grep {sess_name}'):
         # Tests for internet. Sends message to Discord channel if ping works, else will try for ~4min, 30s sleep.
         import time
         for i in range(8):
-            if os.system('ping -c 2 www.google.com'):
+            if os.system('ping -c 2 1.1.1.1'):
                 time.sleep(30)
             else:
                 os.system(f"python3 ~/git/playground/scripts/matsumoto.py 'Rebooted'")
