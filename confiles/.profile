@@ -95,6 +95,7 @@ alias startbots='python3 ~/git/playground/scripts/tmux_setup.py startbots'
 alias slimebot='srcslime && goslime && python3 ~/git/slime_server/source/slime_bot.py'
 alias sandownbot="srcslime && gosandown && python3 ~/git/sandown_channel17/source/channel17_bot.py"
 alias dmsg='python ~/git/playground/scripts/matsumoto.py'
+alias killl='python ~/git/playground/scripts/kill_league.py kill'
 
 
 # === ls
