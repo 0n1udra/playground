@@ -63,6 +63,7 @@ alias python='python3'
 alias vi='vim'
 alias getip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias usync='rsync -rvuP'
+alias isync='rsync -av --ignore-existing'
 alias btop='bpytop'
 alias jar='java -Xmx2G -Xms1G -jar'
 
