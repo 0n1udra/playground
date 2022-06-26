@@ -69,6 +69,7 @@ alias btop='bpytop'
 alias jar='java -Xmx2G -Xms1G -jar'
 
 alias srcslime='source ~/pyenvs/slime_server/bin/activate'
+alias syncliquor='isync ~/Pictures/liquor_boxes/ arcpy:~/Pictures/liquor_boxes/'
 
 # === Paths
 alias gomc='cd ~/Games/Minecraft'
