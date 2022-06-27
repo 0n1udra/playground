@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import psutil, time, os, sys
 
-
 def wait_shutdown():
     """Waits 5min, then shutdown system."""
     print("Shutdown in 5min")
@@ -24,5 +23,3 @@ if __name__ == '__main__':
         wait_shutdown()
     if 'stop' in sys.argv:
         kill_shutdown()
-
-

@@ -1,18 +1,21 @@
-rename and move ssh_config > ~/.ssh/config
 
 #Setup
 ##Install Vundle (Vim Plugin Manager)
-Link: https://github.com/VundleVim/Vundle.vim
-1. Clone: git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-2. Setup Bash profile.
-3. Open vim and use command :PluginInstall
+Link: https://github.com/VundleVim/Vundle.vim  
+1. Clone: git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim  
+2. Setup Bash profile.  
+3. Open vim and use command :PluginInstall  
 
 ##Install Powerline fonts:
-Link: https://github.com/powerline/fonts
-Other: Clone above repo, and run ./install.sh inside.
-Debian: sudo apt-get install fonts-powerline
+Link: https://github.com/powerline/fonts  
+Other: Clone above repo, and run ./install.sh inside.  
+Debian: sudo apt-get install fonts-powerline  
 
-##Misc:
-cp bpytop.conf ~/.config/bpytop
-cp 'Profile 1.profile' ~/.local/share/konsole
+## Other
+- SSH: cp ssh_config /etc/ssh/
+- Ideavim: ~/.ideavimrc  
+- Bpytop: cp bpytop.conf ~/.config/bpytop  
+- Konsole Profile: cp 'Profile 1.profile' ~/.local/share/konsole  
+- Konsole Schema (keybindings): ctrl + shift + m > Settings > Configure Keyboard Shortcuts > Manage Schemas > More Actions > Import Schema    
+- pwrstatd files go in /etc/  
 
