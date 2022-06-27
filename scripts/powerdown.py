@@ -25,11 +25,7 @@ if __name__ == '__main__':
     if 'slime' in sys.argv:
         reason = 'Slime_server command'
 
-    #powerdown()
+    powerdown()
     if '--restart' in sys.argv:
-        reason = 'powerdown.py'
-        os.system(f"sudo shutdown now")
-    else:
-        print(reason)
-        print("OK")
-        #os.system(f"sudo shutdown +1")
+        os.system(f"sudo reboot")
+    else: os.system(f"sudo shutdown +1")

@@ -54,11 +54,12 @@ alias sudo='sudo '
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 alias lsblko='lsblk -o KNAME,TYPE,SIZE,MODEL'
-alias gosteam="cd ~/.steam/steam/steamapps/common/"
 
 # Always enable colored `grep` output
 alias grep='grep --color=auto'
 alias ngrep='grep -rnwiI ./ -e'
+
+alias cs='shutdown -c; python3 ~/git/playground/scripts/desktop_powerdown.py stop'
 alias python='python3'
 alias vi='vim'
 alias getip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -72,6 +73,7 @@ alias srcslime='source ~/pyenvs/slime_server/bin/activate'
 alias syncliquor='isync ~/Pictures/liquor_boxes/ arcpy:~/Pictures/liquor_boxes/'
 
 # === Paths
+alias gosteam="cd ~/.steam/steam/steamapps/common/"
 alias gomc='cd ~/Games/Minecraft'
 alias gogit='cd ~/git'
 alias goliquor='cd ~/git/liquor_bot/source'
