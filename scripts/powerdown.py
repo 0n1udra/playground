@@ -18,10 +18,18 @@ def powerdown(wait_time=30):
     time.sleep(wait_time)
 
 if __name__ == '__main__':
+
     if 'ups' in sys.argv:
         reason = 'CyberPower Power failure'
 
-    powerdown()
+    if 'slime' in sys.argv:
+        reason = 'Slime_server command'
+
+    #powerdown()
     if '--restart' in sys.argv:
-        os.system(f"sudo shutdown +1 now")
-    else: os.system(f"sudo shutdown +1 now")
+        reason = 'powerdown.py'
+        os.system(f"sudo shutdown now")
+    else:
+        print(reason)
+        print("OK")
+        #os.system(f"sudo shutdown +1")
