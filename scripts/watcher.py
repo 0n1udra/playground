@@ -20,6 +20,6 @@ if os.system(f'tmux ls | grep {sess_name}'):
             if os.system('ping -c 2 1.1.1.1'):
                 time.sleep(30)
             else:
-                os.system(f"python3 ~/git/playground/scripts/matsumoto.py 'Rebooted'")
+                os.system(f"python3 ~/git/playground/scripts/matsumoto.py 'Arcpy: Rebooted'")
                 lprint(ctx, "INFO: Internet restored")
                 break

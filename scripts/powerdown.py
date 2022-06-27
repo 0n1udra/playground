@@ -3,7 +3,7 @@ import time, sys, os
 from extra import lprint
 
 reason = 'N/A'
-def powerdown(wait_time=40):
+def powerdown(wait_time=30):
     lprint('powerdown.py', f"INFO: System powering down: {reason}")
     # Halts games
     os.system(f"tmux send-keys -t sess:0.0 'stop' ENTER")
@@ -12,10 +12,9 @@ def powerdown(wait_time=40):
     # Halts bots
     os.system(f"tmux send-keys -t sess:0.5 C-c")
     os.system(f"tmux send-keys -t sess:0.6 C-c")
+    os.system(f"tmux send-keys -t sess:0.7 C-c")
 
-    # Give 30s before system power off
     time.sleep(wait_time)
-    # System power off
 
 if __name__ == '__main__':
     if 'ups' in sys.argv:
@@ -23,5 +22,5 @@ if __name__ == '__main__':
 
     powerdown()
     if '--restart' in sys.argv:
-        os.system(f"sudo reboot now")
-    else: os.system(f"sudo shutdown now")
+        os.system(f"sudo shutdown +1 now")
+    else: os.system(f"sudo shutdown +1 now")
