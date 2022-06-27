@@ -5,7 +5,7 @@ from extra import lprint
 filename = 'powerdown.py'
 reason = 'N/A'
 def powerdown(wait_time=30):
-    lprint(filename, f"WARN: Arcpy powering down: {reason}")
+    lprint(filename, f"WARN: ArcPy powering down: {reason}")
     # Halts games
     os.system(f"tmux send-keys -t sess:0.0 'stop' ENTER")
     os.system(f"tmux send-keys -t sess:0.1 C-c")
@@ -27,6 +27,6 @@ if __name__ == '__main__':
 
     powerdown()
     if '--restart' in sys.argv:
-        os.system("python3 ~/git/playground/scripts/matsumoto.py 'Arcpy: Restarting (slime_server)'")
+        os.system("python3 ~/git/playground/scripts/matsumoto.py ArcPy: Restarting (slime_server)")
         os.system(f"sudo reboot")
     else: os.system(f"sudo shutdown +1")
