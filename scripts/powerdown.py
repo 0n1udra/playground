@@ -2,9 +2,10 @@
 import time, sys, os
 from extra import lprint
 
+filename = 'powerdown.py'
 reason = 'N/A'
 def powerdown(wait_time=30):
-    lprint('powerdown.py', f"INFO: System powering down: {reason}")
+    lprint(filename, f"WARN: Arcpy powering down: {reason}")
     # Halts games
     os.system(f"tmux send-keys -t sess:0.0 'stop' ENTER")
     os.system(f"tmux send-keys -t sess:0.1 C-c")
@@ -18,7 +19,7 @@ def powerdown(wait_time=30):
 
 if __name__ == '__main__':
     if 'ups' in sys.argv:
-        reason = 'CyberPower Trigger'
+        reason = 'CyberPower Power failure'
 
     powerdown()
     if '--restart' in sys.argv:
