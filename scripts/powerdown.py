@@ -25,7 +25,8 @@ if __name__ == '__main__':
     if 'slime' in sys.argv:
         reason = 'Slime_server command'
 
-    powerdown()
+    #powerdown()
     if '--restart' in sys.argv:
-        os.system(f"sudo reboot")
+        os.system("python3 ~/git/playground/scripts/matsumoto.py 'Arcpy: Restarting (slime_server)'")
+        #os.system(f"sudo reboot")
     else: os.system(f"sudo shutdown +1")

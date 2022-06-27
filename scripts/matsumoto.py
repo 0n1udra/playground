@@ -5,7 +5,7 @@ from extra import lprint
 
 location = 'matsumoto.py'  # Where log message coming from
 
-token_file = f'{os.getenv("HOME")}/keys/matsumoto.token'
+token_file = f'{os.getenv("HOME")}/keys/matsumoto_bot.token'
 bot_path = os.path.dirname(os.path.abspath(__file__))
 log_file = f'{os.getenv("HOME")}/system_log.txt'
 channel_id = 965114735248953424
