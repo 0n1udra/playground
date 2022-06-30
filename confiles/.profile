@@ -59,7 +59,7 @@ alias lsblko='lsblk -o KNAME,TYPE,SIZE,MODEL'
 alias grep='grep --color=auto'
 alias ngrep='grep -rnwiI ./ -e'
 
-alias cs='shutdown -c; python3 ~/git/playground/scripts/desktop_powerdown.py stop'
+alias fc='ls *.* | wc'
 alias python='python3'
 alias vi='vim'
 alias getip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -101,6 +101,7 @@ alias slimebot='srcslime && goslime && python3 ~/git/slime_server/source/slime_b
 alias sandownbot="srcslime && gosandown && python3 ~/git/sandown_channel17/source/channel17_bot.py"
 alias dmsg='python ~/git/playground/scripts/matsumoto.py'
 alias killl='python ~/git/playground/scripts/kill_league.py kill'
+alias cs='shutdown -c; python3 ~/git/playground/scripts/desktop_powerdown.py stop'
 
 
 # === ls
