@@ -60,6 +60,7 @@ alias grep='grep --color=auto'
 alias ngrep='grep -rnwiI ./ -e'
 
 alias fc='ls *.* | wc'
+alias duh='du -cha --max-depth=1 ./ | grep -E "M|G" | sort -h'
 alias python='python3'
 alias vi='vim'
 alias getip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -69,8 +70,9 @@ alias dsync='rsync -av --ignore-existing --delete'
 alias btop='bpytop'
 alias jar='java -Xmx2G -Xms1G -jar'
 
-alias srcslime='source ~/pyenvs/slime_server/bin/activate'
 alias syncliquor='isync ~/Pictures/liquor_boxes/ arcpy:~/Pictures/liquor_boxes/'
+alias srcslime='source ~/pyenvs/slime_server/bin/activate'
+alias srcliquor='source ~/pyenvs/liquor_site/bin/activate'
 
 # === Paths
 alias gosteam="cd ~/.steam/steam/steamapps/common/"
