@@ -1,0 +1,6 @@
+@reboot /usr/bin/python3 /home/arcpy/git/playground/scripts/watcher.py
+
+@reboot /sbin/ethtool -s eno1 wol g
+
+*/1 * * * * /usr/bin/python3 /home/arcpy/git/playground/scripts/watcher.py
+
