@@ -91,7 +91,9 @@ Additional Ports for Non-Steam Server
 8766/udp, 16261/udp, 16262:16272/tcp (10 players, increase range if more)
 Note: It is possible these extra ports are no longer necessary as of game version 41.65.
 
-===== RAID 1 setup
+===== Hard Drives
+fstab goes in /etc/
+RAID 1 setup:
 Setup filesystem for drives: sudo mkfs.ext4 /dev/sdb
 Do same for /dev/sdc.
 .
