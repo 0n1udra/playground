@@ -127,6 +127,7 @@ alias vhserver='tmuxa vhserver'
 alias cpprofile='cp ~/.profile ~/git/playground/confiles/'
 alias updateprofile='cp ~/git/playground/confiles/.profile ~/'
 alias cpaplay='scp -r arcpy:~/git/playground/ ~/git/'
+alias cpliquor='scp -r ~/git/liquor_site/ arcpy:~/git/'
 
 # === Django
 alias migrate='python3 manage.py makemigrations && python3 manage.py migrate'
@@ -134,6 +135,7 @@ alias run='python3 manage.py runserver'
 alias mrun='migrate && run'
 alias csuper='python3 manage.py createsuperuser'
 alias srcdjango='source ~/pyenv/django_env/bin/activate'
+alias startliquor='cd ~/git/liquor_site/liquor_project/ && python3 start.py'
 
 
 alias shortcuts='echo "
