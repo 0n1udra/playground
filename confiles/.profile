@@ -126,8 +126,8 @@ alias vhserver='tmuxa vhserver'
 # === git
 alias cpprofile='cp ~/.profile ~/git/playground/confiles/'
 alias updateprofile='cp ~/git/playground/confiles/.profile ~/'
-alias cpaplay='scp -r arcpy:~/git/playground/ ~/git/'
-alias cpliquor='scp -r ~/git/liquor_site/ arcpy:~/git/'
+alias scpplay='scp -r arcpy:~/git/playground/ ~/git/'
+alias scpliquor='scp -r ~/git/liquor_site/ arcpy:~/git/'
 
 # === Django
 alias migrate='python3 manage.py makemigrations && python3 manage.py migrate'
