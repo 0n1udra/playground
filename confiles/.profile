@@ -95,9 +95,9 @@ alias vhserver='tmuxa vhserver'
 
 # === rsync
 alias syncliquor='isync ~/Pictures/liquor_boxes/ arcpy:~/Pictures/liquor_boxes/'
-alias usync='rsync -rvuP'
-alias isync='rsync -av --ignore-existing'
-alias dsync='rsync -av --ignore-existing --delete'
+alias usync='rsync -Pauv'
+alias isync='rsync --ignore-existing'
+alias dsync='rsync --ignore-existing --delete'
 
 # === git
 alias cpprofile='cp ~/.profile ~/git/playground/confiles/'
@@ -130,7 +130,7 @@ alias killl='python ~/git/playground/scripts/kill_league.py kill'
 alias cs='shutdown -c; python3 ~/git/playground/scripts/desktop_powerdown.py stop'
 
 # === Scripts & Commands
-function duh { du -shc "${1:-./}"* | grep -E "M|G|K|0" | sort -h;}
+function duh { du -shc ${1:-./}* | grep -E "M|G|K|0" | sort -h;}
 
 alias getip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias btop='bpytop'
