@@ -97,7 +97,7 @@ alias vhserver='tmuxa vhserver'
 
 # === rsync
 alias syncliquor='isync ~/Pictures/liquor_boxes/ arcpy:~/Pictures/liquor_boxes/'
-alias async='rsync -Pav'
+alias async='rsync -Pav --ignore-existing --delete'
 alias usync='rsync -Pauv'  # Only copies updated files
 alias isync='usync --ignore-existing'
 alias dsync='usync --ignore-existing --delete'
