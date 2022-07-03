@@ -45,15 +45,16 @@ PS1+="\[${green}\]\w"; # working directory full path
 PS1+="\[${white}\]\n> \[${reset}\]"; # `$/#` (and reset color)
 export PS1;
 
-
+# ========== Common Commands
 set -o vi # Vi mode with ctrl-[
 alias sudo='sudo ' # Enable aliases to be sudo’ed
 alias vi='vim'
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 alias lsblko='lsblk -o KNAME,TYPE,SIZE,MODEL'
+alias df='df -Th --total'
+alias dfa='df -Tha --total'
 
-# === bash
 alias grep='grep --color'
 alias ngrep='grep -rnwiI ./ -e'
 
@@ -131,7 +132,7 @@ alias dmsg='python ~/git/playground/scripts/matsumoto.py'
 alias killl='python ~/git/playground/scripts/kill_league.py kill'
 alias cs='shutdown -c; python3 ~/git/playground/scripts/desktop_powerdown.py stop'
 
-# === Scripts & Commands
+# === Custom Scripts & Commands/Functions
 function duh { du -shc ${1:-./}* | grep -E "M|G|K|0" | sort -h;}
 
 alias getip="dig +short myip.opendns.com @resolver1.opendns.com"
