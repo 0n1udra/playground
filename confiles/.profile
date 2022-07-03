@@ -57,9 +57,10 @@ alias lsblko='lsblk -o KNAME,TYPE,SIZE,MODEL'
 alias grep='grep --color'
 alias ngrep='grep -rnwiI ./ -e'
 
+# Doesn't show ./ ../
 alias ls='ls -AF --group-directories-first --color'
-alias lh='ls -hsS'
-alias lsr='ls -FRh'
+alias lh='ls -hsS'  # Show sizes (not total, use du)
+alias lsr='ls -FRh'  # Recursive
 alias ll='ls -Fhl'
 
 alias fc='echo File count: $(find . -maxdepth 1 -type f | wc -l)'
