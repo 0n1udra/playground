@@ -96,9 +96,10 @@ alias vhserver='tmuxa vhserver'
 
 # === rsync
 alias syncliquor='isync ~/Pictures/liquor_boxes/ arcpy:~/Pictures/liquor_boxes/'
-alias usync='rsync -Pauv'
-alias isync='rsync --ignore-existing'
-alias dsync='rsync --ignore-existing --delete'
+alias async='rsync -Pav'
+alias usync='rsync -Pauv'  # Only copies updated files
+alias isync='usync --ignore-existing'
+alias dsync='usync --ignore-existing --delete'
 
 # === git
 alias cpprofile='cp ~/.profile ~/git/playground/confiles/'
