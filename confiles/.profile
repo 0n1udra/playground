@@ -64,9 +64,9 @@ alias duh='du -cha --max-depth=1 ./ | grep -E "M|G" | sort -h'
 alias python='python3'
 alias vi='vim'
 alias getip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias usync='rsync -rvuP'
-alias isync='rsync -av --ignore-existing'
-alias dsync='rsync -av --ignore-existing --delete'
+alias usync='rsync -vaP'
+alias isync='rsync -vaP --ignore-existing'
+alias dsync='rsync -vaP --ignore-existing --delete'
 alias btop='bpytop'
 alias jar='java -Xmx2G -Xms1G -jar'
 
