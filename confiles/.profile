@@ -45,34 +45,25 @@ PS1+="\[${green}\]\w"; # working directory full path
 PS1+="\[${white}\]\n> \[${reset}\]"; # `$/#` (and reset color)
 export PS1;
 
-# Vi mode with ctrl-[
-set -o vi
 
-# ========== Shortcuts
-# Enable aliases to be sudo’ed
-alias sudo='sudo '
+set -o vi # Vi mode with ctrl-[
+alias sudo='sudo ' # Enable aliases to be sudo’ed
+alias vi='vim'
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 alias lsblko='lsblk -o KNAME,TYPE,SIZE,MODEL'
 
-# Always enable colored `grep` output
-alias grep='grep --color=auto'
+# === bash
+alias grep='grep --color'
 alias ngrep='grep -rnwiI ./ -e'
 
-alias fc='ls *.* | wc'
-alias duh='du -cha --max-depth=1 ./ | grep -E "M|G" | sort -h'
-alias python='python3'
-alias vi='vim'
-alias getip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias usync='rsync -vaP'
-alias isync='rsync -vaP --ignore-existing'
-alias dsync='rsync -vaP --ignore-existing --delete'
-alias btop='bpytop'
-alias jar='java -Xmx2G -Xms1G -jar'
+alias ls='ls -AF --group-directories-first --color'
+alias lsh='ls -hsS'
+alias lsr='ls -FRh'
+alias ll='ls -Fhl'
 
-alias syncliquor='isync ~/Pictures/liquor_boxes/ arcpy:~/Pictures/liquor_boxes/'
-alias srcslime='source ~/pyenvs/slime_server/bin/activate'
-alias srcliquor='source ~/pyenvs/liquor_site/bin/activate'
+alias fc='echo File count: $(find . -maxdepth 1 -type f | wc -l)'
+alias ic='echo Item count: $(ls | wc -l)'
 
 # === Paths
 alias gosteam="cd ~/.steam/steam/steamapps/common/"
@@ -93,27 +84,6 @@ alias virc='vim ~/.vimrc'
 alias vitmux='vim ~/.tmux.conf'
 alias vissh='vim /etc/ssh/sshd_config'
 
-# === Scripts
-alias powerdown='python3 ~/git/playground/scripts/powerdown.py'
-alias tsetup='gogit && python3 playground/scripts/tmux_setup.py starttmux'
-alias tsetupapp='python3 ~/git/playground/scripts/tmux_setup.py starttmux startapp startbots'
-alias tsetupall='python3 ~/git/playground/scripts/tmux_setup.py starttmux startapp startbots attachtmux'
-alias startbots='python3 ~/git/playground/scripts/tmux_setup.py startbots'
-alias slimebot='srcslime && goslime && python3 ~/git/slime_server/source/slime_bot.py'
-alias sandownbot="srcslime && gosandown && python3 ~/git/sandown_channel17/source/channel17_bot.py"
-alias dmsg='python ~/git/playground/scripts/matsumoto.py'
-alias killl='python ~/git/playground/scripts/kill_league.py kill'
-alias cs='shutdown -c; python3 ~/git/playground/scripts/desktop_powerdown.py stop'
-
-
-# === ls
-alias ls='ls -Fh'
-alias lsr='ls -FRh'
-alias la='ls -Fha'
-alias ll='ls -Fhal'
-alias lc='ls -Fha --color'
-alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
-
 # === tmux
 alias tmuxa='tmux a -t'
 alias tmuxl='tmux ls'
@@ -122,6 +92,12 @@ alias tmuxk='tmux kill-session -t'
 alias tmuxks='tmux kill-session '
 alias sess='tmuxa sess'
 alias vhserver='tmuxa vhserver'
+
+# === rsync
+alias syncliquor='isync ~/Pictures/liquor_boxes/ arcpy:~/Pictures/liquor_boxes/'
+alias usync='rsync -rvuP'
+alias isync='rsync -av --ignore-existing'
+alias dsync='rsync -av --ignore-existing --delete'
 
 # === git
 alias cpprofile='cp ~/.profile ~/git/playground/confiles/'
@@ -137,47 +113,36 @@ alias csuper='python3 manage.py createsuperuser'
 alias srcdjango='source ~/pyenv/django_env/bin/activate'
 alias startliquor='cd ~/git/liquor_site/liquor_project/ && python3 start.py'
 
+# === Python
+alias python='python3'
+alias srcslime='source ~/pyenvs/slime_server/bin/activate'
+alias srcliquor='source ~/pyenvs/liquor_site/bin/activate'
 
-alias shortcuts='echo "
-:Aliases:
-goslime  - MC server bot  |  gojux - jux_photos
-gogit    - git            | goconfig - config files
-gomc     - MC Game folder |
-usync    - rsync -rvuP    |  ip    - get public ip
-jar      - jar 1-2G
+alias powerdown='python3 ~/git/playground/scripts/powerdown.py'
+alias tsetup='gogit && python3 playground/scripts/tmux_setup.py starttmux'
+alias tsetupapp='python3 ~/git/playground/scripts/tmux_setup.py starttmux startapp startbots'
+alias tsetupall='python3 ~/git/playground/scripts/tmux_setup.py starttmux startapp startbots attachtmux'
+alias startbots='python3 ~/git/playground/scripts/tmux_setup.py startbots'
+alias slimebot='srcslime && goslime && python3 ~/git/slime_server/source/slime_bot.py'
+alias sandownbot="srcslime && gosandown && python3 ~/git/sandown_channel17/source/channel17_bot.py"
+alias dmsg='python ~/git/playground/scripts/matsumoto.py'
+alias killl='python ~/git/playground/scripts/kill_league.py kill'
+alias cs='shutdown -c; python3 ~/git/playground/scripts/desktop_powerdown.py stop'
 
-:Scripts:
-tsetup/tsetupapp/tsetupall - tmux_setup.py (startapp/startall attachtmux)
-slimebot   - srcslime && gogit && python slime_server.py
-sandownbot - Sandown Channel17 bot
+# === Scripts & Commands
+alias duh='du -cha --max-depth=1 ./ | grep -E "M|G" | sort -h'
+alias lh='duh'
 
-:System:
-viprofile   - vi .profile   | virc      - vi .vimrc
-vitmux      - vi .tmux.conf | vissh     - /etc/ssh/sshd_config
-srcprofile  - src .profile  | srcdjango - src django_env
-
-:Tmux:
-tmuxa - attach | tmuxk  - kill
-tmuxl - list   | tmuxks - Kill current session
-tmuxs - new
-
-:Django:
-run    - runserver     | mrun    -  migrate && run  
-csuper - new superuser | migrate -  makemigrations && migrate
-
-:Extra:
-ctrl-[      --  VI Mode         |   alt-a-[     --  VI Copy Mode
-hold shift  --  System Copy     |   shift-RC    --  System Paste
-LC - Left Click, Right Click
-"'
-alias a='shortcuts'
-
-# ===== Extra
-alias vlog='cd ~/Games/valheim/log/console/vhserver-console.log | grep "/2022"'
-alias mc='java -server -Xmx4G -Xms2G -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:ParallelGCThreads=2 '
-alias syslog='cat ~/system.log'
-alias pwrlog='cat /var/log/pwrstatd.log'
+alias getip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias btop='bpytop'
 alias wolarc='wakeonlan 00:22:4D:69:AA:CA'
 
-clear
+alias jar='java -Xmx2G -Xms1G -jar'
+alias mc='java -server -Xmx4G -Xms2G -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:ParallelGCThreads=2 '
 
+# === Logs
+alias syslog='cat ~/system.log'
+alias pwrlog='cat /var/log/pwrstatd.log'
+alias vlog='cd ~/Games/valheim/log/console/vhserver-console.log | grep "/2022"'
+
+#clear
