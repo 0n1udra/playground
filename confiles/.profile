@@ -58,7 +58,7 @@ alias grep='grep --color'
 alias ngrep='grep -rnwiI ./ -e'
 
 alias ls='ls -AF --group-directories-first --color'
-alias lsh='ls -hsS'
+alias lh='ls -hsS'
 alias lsr='ls -FRh'
 alias ll='ls -Fhl'
 
@@ -130,8 +130,7 @@ alias killl='python ~/git/playground/scripts/kill_league.py kill'
 alias cs='shutdown -c; python3 ~/git/playground/scripts/desktop_powerdown.py stop'
 
 # === Scripts & Commands
-alias duh='du -cha --max-depth=1 ./ | grep -E "M|G" | sort -h'
-alias lh='duh'
+function duh { du -shc "${1:-./}"* | grep -E "M|G|K|0" | sort -h;}
 
 alias getip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias btop='bpytop'
