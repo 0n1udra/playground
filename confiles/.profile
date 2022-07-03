@@ -60,6 +60,7 @@ alias ngrep='grep -rnwiI ./ -e'
 
 # Doesn't show ./ ../
 alias ls='ls -AF --group-directories-first --color'
+alias lnc='ls -AF --group-directories-first --color=no'
 alias lh='ls -hsS'  # Show sizes (not total, use du)
 alias lsr='ls -FRh'  # Recursive
 alias ll='ls -Fhl'
@@ -146,5 +147,10 @@ alias mc='java -server -Xmx4G -Xms2G -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:P
 alias syslog='cat ~/system.log'
 alias pwrlog='cat /var/log/pwrstatd.log'
 alias vlog='cd ~/Games/valheim/log/console/vhserver-console.log | grep "/2022"'
+
+# ===== ArcPy
+alias valheimupdate='steamcmd +login anonymous +app_update 896660 +exit'
+alias zomboidupdate='steamcmd +login anonymous +app_update 380870 +exit'
+
 
 #clear
