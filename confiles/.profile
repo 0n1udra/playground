@@ -79,6 +79,7 @@ alias gotensei='cd ~/git/TenseiPy/source'
 alias gosandown='cd ~/git/sandown_channel17/source'
 alias goplay='cd ~/git/playground/'
 alias goscripts='cd ~/git/playground/scripts'
+alias goraid1='cd /mnt/raid1/'
 
 # === Config Files
 alias srcprofile="source ~/.profile"
@@ -97,11 +98,12 @@ alias sess='tmuxa sess'
 alias vhserver='tmuxa vhserver'
 
 # === rsync
-alias syncliquor='isync ~/Pictures/liquor_boxes/ arcpy:~/Pictures/liquor_boxes/'
-alias async='rsync -Pav --ignore-existing --delete'
-alias usync='rsync -Pauv'  # Only copies updated files
+alias async='rsync -Pav --delete'
+alias usync='rsync -Pauv'
 alias isync='usync --ignore-existing'
 alias dsync='usync --ignore-existing --delete'
+alias syncliquorphotos='dsync ~/Pictures/liquor_boxes/ arcpy:~/Pictures/liquor_boxes/'
+alias syncliquor='dsync ~/git/liquor_site/ arcpy:~/git/liquor_site/'
 
 # === git
 alias cpprofile='cp ~/.profile ~/git/playground/confiles/'
@@ -115,7 +117,7 @@ alias run='python3 manage.py runserver'
 alias mrun='migrate && run'
 alias csuper='python3 manage.py createsuperuser'
 alias srcdjango='source ~/pyenv/django_env/bin/activate'
-alias startliquor='cd ~/git/liquor_site/liquor_project/ && python3 start.py'
+alias startliquor='source ~/pyenvs/liquor_site/bin/activate && cd ~/git/liquor_site/liquor_project/ && python3 start.py'
 
 # === Python
 alias python='python3'
