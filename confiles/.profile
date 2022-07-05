@@ -54,6 +54,7 @@ alias path='echo -e ${PATH//:/\\n}'
 alias lsblko='lsblk -o KNAME,TYPE,SIZE,MODEL'
 alias df='df -Th --total'
 alias dfa='df -Tha --total'
+alias dfraid1='df | grep raid1'
 
 alias grep='grep --color'
 alias ngrep='grep -rnwiI ./ -e'
