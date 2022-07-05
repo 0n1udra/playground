@@ -54,7 +54,6 @@ alias path='echo -e ${PATH//:/\\n}'
 alias lsblko='lsblk -o KNAME,TYPE,SIZE,MODEL'
 alias df='df -Th --total'
 alias dfa='df -Tha --total'
-alias dfraid1='df | grep raid1'
 
 alias grep='grep --color'
 alias ngrep='grep -rnwiI ./ -e'
@@ -104,13 +103,13 @@ alias usync='rsync -Pauv'
 alias isync='usync --ignore-existing'
 alias dsync='usync --ignore-existing --delete'
 alias syncliquorphotos='dsync ~/Pictures/liquor_boxes/ arcpy:~/Pictures/liquor_boxes/'
-alias syncliquor='dsync ~/git/liquor_site/ arcpy:~/git/liquor_site/'
 
 # === git
 alias cpprofile='cp ~/.profile ~/git/playground/confiles/'
 alias updateprofile='cp ~/git/playground/confiles/.profile ~/'
 alias scpplay='scp -r arcpy:~/git/playground/ ~/git/'
 alias scpliquor='scp -r ~/git/liquor_site/ arcpy:~/git/'
+alias scpplay='scp -r ~/git/playground/ arcpy:~/git/'
 
 # === Django
 alias migrate='python3 manage.py makemigrations && python3 manage.py migrate'
