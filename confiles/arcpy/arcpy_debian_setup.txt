@@ -97,3 +97,5 @@ RAID 1 setup:
 Setup filesystem for drives: sudo mkfs.ext4 /dev/sdb
 Do same for /dev/sdc.
 .
+===== Samba
+smb.conf > /etc/samba/smb.conf
