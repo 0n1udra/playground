@@ -45,6 +45,8 @@ PS1+="\[${green}\]\w"; # working directory full path
 PS1+="\[${white}\]\n> \[${reset}\]"; # `$/#` (and reset color)
 export PS1;
 
+export EDITOR='vim'
+
 # ========== Common Commands
 set -o vi # Vi mode with ctrl-[
 alias sudo='sudo ' # Enable aliases to be sudo’ed
@@ -52,6 +54,7 @@ alias vi='vim'
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 alias lsblko='lsblk -o KNAME,TYPE,SIZE,MODEL'
+alias diff='diff --color'
 alias df='df -Th --total'
 alias dfa='df -Tha --total'
 

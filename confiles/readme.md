@@ -18,4 +18,5 @@ Debian: sudo apt-get install fonts-powerline
 - Konsole Profile: cp 'Profile 1.profile' ~/.local/share/konsole  
 - Konsole Schema (keybindings): ctrl + shift + m > Settings > Configure Keyboard Shortcuts > Manage Schemas > More Actions > Import Schema    
 - pwrstatd files go in /etc/  
+- Nvidia X Server: xorg.conf > /etc/X11/
 
