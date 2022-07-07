@@ -76,6 +76,7 @@ alias gosteam="cd ~/.steam/steam/steamapps/common/"
 alias gomc='cd ~/Games/Minecraft'
 alias gogit='cd ~/git'
 alias goliquor='cd ~/git/liquor_bot/source'
+alias goliquorsite='cd ~/git/liquor_site/liquor_project'
 alias goconfig='cd ~/git/Personal/Config_Files'
 alias goslime='cd ~/git/slime_server/source'
 alias gotensei='cd ~/git/TenseiPy/source'
@@ -111,7 +112,7 @@ alias dasyncliquorphotos='dsync ~/Pictures/liquor_boxes/ arcpy:~/Pictures/liquor
 alias cpprofile='cp ~/.profile ~/git/playground/confiles/'
 alias updateprofile='cp ~/git/playground/confiles/.profile ~/'
 alias adplay='scp -r arcpy:~/git/playground/ ~/git/'
-alias daliquor='scp -r ~/git/liquor_site/ arcpy:~/git/'
+alias daliquor='dsync ~/git/liquor_site/ arcpy@192.168.1.189:~/git/liquor_site/'
 alias daplay='scp -r ~/git/playground/ arcpy:~/git/'
 
 # === Django
