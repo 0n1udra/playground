@@ -112,7 +112,9 @@ alias dasyncliquorphotos='dsync ~/Pictures/liquor_boxes/ arcpy:~/Pictures/liquor
 alias cpprofile='cp ~/.profile ~/git/playground/confiles/'
 alias updateprofile='cp ~/git/playground/confiles/.profile ~/'
 alias adplay='scp -r arcpy:~/git/playground/ ~/git/'
-alias daliquor='dsync ~/git/liquor_site/ arcpy@192.168.1.189:~/git/liquor_site/'
+alias daliquor='scp -r ~/git/liquor_site/* arcpy:~/git/liquor_site/'
+alias daliquorgit='scp -r ~/git/liquor_site/.git/ arcpy:~/git/liquor_site/'
+alias adliquor='scp -r arcpy:~/git/liquor_site/* ~/git/liquor_site/'
 alias daplay='scp -r ~/git/playground/ arcpy:~/git/'
 
 # === Django
