@@ -123,22 +123,25 @@ alias run='python3 manage.py runserver'
 alias mrun='migrate && run'
 alias csuper='python3 manage.py createsuperuser'
 alias srcdjango='source ~/pyenv/django_env/bin/activate'
-alias startliquor='source ~/pyenvs/liquor_site/bin/activate && cd ~/git/liquor_site/liquor_project/ && python3 start.py'
+alias liquorsite='cd ~/git/liquor_site/ && ./bin/gunicorn_start'
 
 # === Python
 alias python='python3'
 alias srcslime='source ~/pyenvs/slime_server/bin/activate'
 alias srcliquor='source ~/pyenvs/liquor_site/bin/activate'
+# Discord Bots
+alias dmsg='python ~/git/playground/scripts/matsumoto.py'
+alias startbots='python3 ~/git/playground/scripts/tmux_setup.py startbots'
+alias slimebot='srcslime && goslime && python3 slime_bot.py'
+alias sandownbot="srcslime && gosandown && python3 channel17_bot.py"
+alias liquorbot="deactivate; cd ~/git/liquor_bot/source/ && python3 liquor_bot.py"
 
 alias powerdown='python3 ~/git/playground/scripts/powerdown.py'
 alias tsetup='python3 ~/git/playground/scripts/tmux_setup.py starttmux'
 alias tsetupb='python3 ~/git/playground/scripts/tmux_setup.py basic'
 alias tsetupapp='python3 ~/git/playground/scripts/tmux_setup.py starttmux startapp startbots'
 alias tsetupall='python3 ~/git/playground/scripts/tmux_setup.py starttmux startapp startbots attachtmux'
-alias startbots='python3 ~/git/playground/scripts/tmux_setup.py startbots'
-alias slimebot='srcslime && goslime && python3 ~/git/slime_server/source/slime_bot.py'
-alias sandownbot="srcslime && gosandown && python3 ~/git/sandown_channel17/source/channel17_bot.py"
-alias dmsg='python ~/git/playground/scripts/matsumoto.py'
+
 alias killl='python ~/git/playground/scripts/kill_league.py kill'
 alias cs='shutdown -c; python3 ~/git/playground/scripts/desktop_powerdown.py stop'
 
