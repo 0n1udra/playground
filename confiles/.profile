@@ -113,7 +113,7 @@ alias cpprofile='cp ~/.profile ~/git/playground/confiles/'
 alias updateprofile='cp ~/git/playground/confiles/.profile ~/'
 alias adplay='scp -r arcpy:~/git/playground/ ~/git/'
 alias daliquor='scp -r ~/git/liquor_site/* arcpy:~/git/liquor_site/'
-alias daliquorgit='scp -r ~/git/liquor_site/.git/ arcpy:~/git/liquor_site/'
+alias daliquorgit='scp -r  desktop:~/git/liquor_site/.git/ ~/git/liquor_site/.git/'
 alias adliquor='scp -r arcpy:~/git/liquor_site/* ~/git/liquor_site/'
 alias daplay='scp -r ~/git/playground/ arcpy:~/git/'
 
