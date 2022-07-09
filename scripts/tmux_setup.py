@@ -39,6 +39,12 @@ tmux split-window -v -t {tmux_session_name}:2.0')
     time.sleep(1)
 
 if __name__ == '__main__':
+    if 'basic' in sys.argv:
+        os.system(f'tmux new -d -s {tmux_session_name} && tmux split-window -v -t {tmux_session_name}:0.0')
+        os.system(f'tmux send-keys -t {tmux_session_name}:0.0 "vim" ENTER && tmux send-keys -t {tmux_session_name}:0.0 ":q!" ENTER')
+        os.system(f'tmux attach -t {tmux_session_name}')
+        exit()
+
     if 'starttmux' in sys.argv:
         start_tmux_session()
         lprint(filename, "INFO: Constructed tmux session")
