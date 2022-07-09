@@ -44,8 +44,9 @@ if __name__ == '__main__':
         lprint(filename, "INFO: Constructed tmux session")
 
     if 'startbots' in sys.argv:
-        os.system(f'tmux send-keys -t {tmux_session_name}:0.5 "slimebot" ENTER')  # Start slime_server bot
-        os.system(f'tmux send-keys -t {tmux_session_name}:0.6 "gogit && cd liquor_bot/source && python liquor_bot.py" ENTER')  # Start channel17 bot
+        os.system(f'tmux send-keys -t {tmux_session_name}:0.4 "liquorsite" ENTER')  # Start liquor_site gunicorn
+        os.system(f'tmux send-keys -t {tmux_session_name}:0.5 "liquorbot" ENTER')  # Start liquor_bot
+        os.system(f'tmux send-keys -t {tmux_session_name}:0.6 "slimebot" ENTER')  # Start slime_server bot
         os.system(f'tmux send-keys -t {tmux_session_name}:0.7 "sandownbot" ENTER')  # Start channel17 bot
         lprint(filename, "INFO: Started bots in tmux session")
 
