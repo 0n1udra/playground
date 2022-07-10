@@ -1,5 +1,5 @@
 import psutil, sys
-from ..scripts.extra import lprint
+from extra import lprint
 
 # Kills all league related processes like client, wine, lutris, etc.
 
