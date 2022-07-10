@@ -25,6 +25,14 @@ if os.system(f'tmux ls | grep {sess_name}'):
 
 # Checks liquor_site status, if offline sends Discord message.
 response = requests.get('http://arcpy.asuscomm.com')
-if not response.ok:
-    lprint(filename, 'WARN: Liquor site unreachable.')
-    os.system("python3 ~/git/playground/scripts/matsumoto.py Liquor site unreachable")
+if response.ok:
+    with open('lsite_status', 'w+') as f: f.write('online')
+else:
+    x = ''
+    # So script doesn't keep sending Discord message if still offline
+    with open('lsite_status', 'r') as f: x = f.read()
+    if 'offline' not in x:
+        lprint(filename, 'WARN: Liquor site unreachable.')
+        os.system("python3 ~/git/playground/scripts/matsumoto.py Liquor site unreachable")
+        with open('lsite_status', 'w') as f: f.write('offline')
+
