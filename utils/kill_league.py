@@ -1,5 +1,7 @@
 import psutil, sys
-from extra import lprint
+from ..scripts.extra import lprint
+
+# Kills all league related processes like client, wine, lutris, etc.
 
 def get_proc(proc_name, proc_cmdline=None):
     """Returns a process by matching name and argument."""
