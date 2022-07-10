@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import time, os
+import time, sys, os
 from extra import lprint
 
 sess_name = 'sess'
@@ -23,15 +23,19 @@ if os.system(f'tmux ls | grep {sess_name}'):
                 lprint(filename, "INFO: Internet restored")
                 break
 
-# Checks liquor_site status, if offline sends Discord message.
-if not os.system('curl -Is arcpy.asuscomm.com | grep OK'):
-    with open('lsite_status', 'w+') as f: f.write('online')
-else:
-    x = ''
-    # So script doesn't keep sending Discord message if still offline
-    with open('lsite_status', 'r') as f: x = f.read()
-    if 'offline' not in x:
-        lprint(filename, 'WARN: Liquor site unreachable.')
-        os.system("python3 ~/git/playground/scripts/matsumoto.py Liquor site unreachable")
-        with open('lsite_status', 'w') as f: f.write('offline')
+def check_liquor_site():
+    # Checks liquor_site status, if offline sends Discord message.
+    if not os.system('curl -Is arcpy.asuscomm.com | grep OK'):
+        with open('lsite_status', 'w+') as f: f.write('online')
+    else:
+        x = ''
+        # So script doesn't keep sending Discord message if still offline
+        with open('lsite_status', 'r') as f: x = f.read()
+        if 'offline' not in x:
+            lprint(filename, 'WARN: Liquor site unreachable.')
+            os.system("python3 ~/git/playground/scripts/matsumoto.py Liquor site unreachable")
+            with open('lsite_status', 'w') as f: f.write('offline')
 
+if __name__ == '__main__':
+    if 'lsite' in sys.argv:
+        check_liquor_site()
