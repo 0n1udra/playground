@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import time, os
+import requests, time, os
 from extra import lprint
 
 sess_name = 'sess'
@@ -22,3 +22,9 @@ if os.system(f'tmux ls | grep {sess_name}'):
                 os.system(f"python3 ~/git/playground/scripts/matsumoto.py 'Arcpy: Rebooted'")
                 lprint(filename, "INFO: Internet restored")
                 break
+
+# Checks liquor_site status, if offline sends Discord message.
+response = requests.get('http://arcpy.asuscomm.com')
+if not response.ok:
+    lprint(filename, 'WARN: Liquor site unreachable.')
+    os.system("python3 ~/git/playground/scripts/matsumoto.py Liquor site unreachable")
