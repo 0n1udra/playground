@@ -22,15 +22,17 @@ msg = ''
 @bot.event
 async def on_ready():
     global msg
-    await bot.wait_until_ready()
-    channel = bot.get_channel(channel_id)
-    await channel.send(msg)
+    try:
+        await bot.wait_until_ready()
+        channel = bot.get_channel(channel_id)
+        await channel.send(msg)
+    except:  # If something fails, bot won't stay running.
+        exit()
     await bot.close()
+    lprint(location, f"INFO: Message sent: {msg}")
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
         msg = ' '.join(sys.argv[1:])
-        lprint(location, f"INFO: Message sent: {msg}")
-
         bot.run(TOKEN)
 
