@@ -90,7 +90,8 @@ alias srcprofile="source ~/.profile"
 alias viprofile='vim ~/.profile'
 alias virc='vim ~/.vimrc'
 alias vitmux='vim ~/.tmux.conf'
-alias vissh='vim /etc/ssh/sshd_config'
+#alias vissh='vim /etc/ssh/sshd_config'
+alias vissh='vim ~/.ssh/config'
 
 # === tmux
 alias tmuxa='tmux a -t'
