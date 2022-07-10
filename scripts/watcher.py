@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import requests, time, os
+import time, os
 from extra import lprint
 
 sess_name = 'sess'
@@ -24,8 +24,7 @@ if os.system(f'tmux ls | grep {sess_name}'):
                 break
 
 # Checks liquor_site status, if offline sends Discord message.
-response = requests.get('http://arcpy.asuscomm.com')
-if response.ok:
+if not os.system('curl -Is arcpy.asuscomm.com | grep OK'):
     with open('lsite_status', 'w+') as f: f.write('online')
 else:
     x = ''
