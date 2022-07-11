@@ -71,6 +71,8 @@ alias ll='ls -Fhl'
 alias fc='echo File count: $(find . -maxdepth 1 -type f | wc -l)'
 alias ic='echo Item count: $(ls | wc -l)'
 
+alias lssh='ss | grep -i ssh'
+
 # === Paths
 alias gosteam="cd ~/.steam/steam/steamapps/common/"
 alias gomc='cd ~/Games/Minecraft'
@@ -113,6 +115,7 @@ alias dasyncliquorphotos='dsync ~/Pictures/liquor_boxes/ arcpy:~/Pictures/liquor
 alias cpprofile='cp ~/.profile ~/git/playground/confiles/'
 alias updateprofile='cp ~/git/playground/confiles/.profile ~/'
 alias adplay='scp -r arcpy:~/git/playground/ ~/git/'
+alias adprofile='scp arcpy:~/.profile ~/git/playground/confiles/'
 alias daliquor='sudo scp -r desktop:~/git/liquor_site/ ~/git/'
 alias adliquor='scp -r arcpy:~/git/liquor_site/* ~/git/liquor_site/'
 alias daplay='scp -r ~/git/playground/ arcpy:~/git/'
