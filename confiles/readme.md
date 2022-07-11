@@ -12,11 +12,12 @@ Other: Clone above repo, and run ./install.sh inside.
 Debian: sudo apt-get install fonts-powerline  
 
 ## Other
-- SSH: cp ssh_config /etc/ssh/
-- Ideavim: ~/.ideavimrc  
-- Bpytop: cp bpytop.conf ~/.config/bpytop/bpytop.conf
-- Konsole Profile: cp 'Profile 1.profile' ~/.local/share/konsole/PROFILE
+- SSH: `ssh_config` > `/etc/ssh/`  
+  - Optionally copy files to /root/.ssh/ so `sudo scp` commands work  
+- Ideavim: `~/.ideavimrc`    
+- Bpytop: `~/.config/bpytop/bpytop.conf`  
+- Konsole Profile: `Profile 1.profile` > `~/.local/share/konsole/PROFILE`  
 - Konsole Schema (keybindings): ctrl + shift + m > Settings > Configure Keyboard Shortcuts > Manage Schemas > More Actions > Import Schema    
-- pwrstatd files go in /etc/  
-- Nvidia X Server: xorg.conf > /etc/X11/xorg.conf
+- pwrstatd files >  `/etc/`  
+- Nvidia X Server: `xorg.conf` > `/etc/X11/xorg.conf`  
 
