@@ -57,7 +57,7 @@ alias lsblko='lsblk -o KNAME,TYPE,SIZE,MODEL'
 alias diff='diff --color'
 alias df='df -Th --total'
 alias dfa='df -Tha --total'
-
+alias fless='less +F'
 alias grep='grep --color'
 alias ngrep='grep -rnwiI ./ -e'
 
@@ -157,9 +157,13 @@ alias jar='java -Xmx2G -Xms1G -jar'
 alias mc='java -server -Xmx4G -Xms2G -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:ParallelGCThreads=2 '
 
 # === Logs
-alias syslog='cat ~/system.log'
-alias pwrlog='cat /var/log/pwrstatd.log'
-alias vlog='cd ~/Games/valheim/log/console/vhserver-console.log | grep "/2022"'
+
+alias logsystem='fless ~/system.log'
+alias logpwr='fless /var/log/pwrstatd.log'
+alias logauth='fless /var/log/auth.log'
+alias logfail='fless /var/log/faillog'
+alias logboot='fless /var/log/faillog'
+#alias logval='cd ~/Games/valheim/log/console/vhserver-console.log | grep "/2022"'
 
 # ===== ArcPy
 alias valheimupdate='steamcmd +login anonymous +app_update 896660 +exit'
