@@ -66,7 +66,7 @@ alias ngrep='grep -rnwiI ./ -e'
 alias ls='ls -AF --group-directories-first --color'
 alias lnc='ls -AF --group-directories-first --color=no'
 # Mac can't take args with --
-if [[ "${USER}" == "0n1udra-MBP" ]]; then alias ls='ls -AF' fi;
+if [[ "${USER}" == "0n1udra-MBP" ]]; then alias ls='ls -AF'; fi;
 alias lh='ls -hsS'  # Show sizes (not total, use du)
 alias lsr='ls -FRh'  # Recursive
 alias ll='ls -Fhl'
@@ -174,6 +174,5 @@ alias logboot='fless /var/log/faillog'
 alias valheimupdate='steamcmd +login anonymous +app_update 896660 +exit'
 alias valheimbackup='cp -r ~/.config/unity3d/IronGate/Valheim/ /mnt/raid1/server_backup/'
 alias zomboidupdate='steamcmd +login anonymous +app_update 380870 +exit'
-
 
 #clear
