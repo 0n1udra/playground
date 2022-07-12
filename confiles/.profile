@@ -62,8 +62,11 @@ alias grep='grep --color'
 alias ngrep='grep -rnwiI ./ -e'
 
 # Doesn't show ./ ../
+
 alias ls='ls -AF --group-directories-first --color'
 alias lnc='ls -AF --group-directories-first --color=no'
+# Mac can't take args with --
+if [[ "${USER}" == "0n1udra-MBP" ]]; then alias ls='ls -AF' fi;
 alias lh='ls -hsS'  # Show sizes (not total, use du)
 alias lsr='ls -FRh'  # Recursive
 alias ll='ls -Fhl'
