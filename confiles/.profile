@@ -145,7 +145,7 @@ alias tsetupb='python3 ~/git/playground/scripts/tmux_setup.py basic'
 alias tsetupapp='python3 ~/git/playground/scripts/tmux_setup.py starttmux startapp startbots'
 alias tsetupall='python3 ~/git/playground/scripts/tmux_setup.py starttmux startapp startbots attachtmux'
 
-alias killl='python ~/git/playground/scripts/kill_league.py kill'
+alias killl='python ~/git/playground/utils/kill_league.py kill'
 alias cs='shutdown -c; python3 ~/git/playground/scripts/desktop_powerdown.py stop'
 
 # === Custom Scripts & Commands/Functions
@@ -169,6 +169,7 @@ alias logboot='fless /var/log/faillog'
 
 # ===== ArcPy
 alias valheimupdate='steamcmd +login anonymous +app_update 896660 +exit'
+alias valheimbackup='cp -r ~/.config/unity3d/IronGate/Valheim/ /mnt/raid1/server_backup/'
 alias zomboidupdate='steamcmd +login anonymous +app_update 380870 +exit'
 
 
