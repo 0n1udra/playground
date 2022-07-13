@@ -74,7 +74,6 @@ alias ll='ls -Fhl'
 alias fc='echo File count: $(find . -maxdepth 1 -type f | wc -l)'
 alias ic='echo Item count: $(ls | wc -l)'
 
-alias lssh='ss | grep -i ssh'
 
 # === Paths
 alias gosteam="cd ~/.steam/steam/steamapps/common/"
@@ -95,6 +94,10 @@ alias srcprofile="source ~/.profile"
 alias viprofile='vim ~/.profile'
 alias virc='vim ~/.vimrc'
 alias vitmux='vim ~/.tmux.conf'
+
+# === SSH
+alias marcpy="mosh --ssh='ssh -p 3405' parcpy"
+alias lssh='ss | grep -i ssh'
 alias visshd='sudoedit /etc/ssh/sshd_config'
 alias vissh='vim ~/.ssh/config'
 
@@ -162,12 +165,12 @@ alias jar='java -Xmx2G -Xms1G -jar'
 alias mc='java -server -Xmx4G -Xms2G -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:ParallelGCThreads=2 '
 
 # === Logs
-
 alias logsystem='fless ~/system.log'
 alias logpwr='fless /var/log/pwrstatd.log'
 alias logauth='fless /var/log/auth.log'
 alias logfail='fless /var/log/faillog'
 alias logboot='fless /var/log/faillog'
+alias logliquor='fless ~/git/liquor_site/logs/liquor_backend.log'
 #alias logval='cd ~/Games/valheim/log/console/vhserver-console.log | grep "/2022"'
 
 # ===== ArcPy
