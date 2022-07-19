@@ -123,7 +123,7 @@ alias updateprofile='cp ~/git/playground/confiles/.profile ~/'
 alias adplay='scp -r arcpy:~/git/playground/ ~/git/'
 alias adprofile='scp arcpy:~/.profile ~/git/playground/confiles/'
 alias daliquor='sudo scp -r desktop:~/git/liquor_site/ ~/git/'
-alias adliquor='scp -r arcpy:~/git/liquor_site/* ~/git/liquor_site/'
+alias adliquor='sudo scp -r arcpy:~/git/liquor_site/ ~/git/'
 alias daplay='scp -r ~/git/playground/ arcpy:~/git/'
 
 # === Django
@@ -160,6 +160,7 @@ function duh { du -shc ${1:-./}* | grep -E "M|G|K|0" | sort -h;}
 alias getip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias btop='bpytop'
 alias wolarc='wakeonlan 00:22:4D:69:AA:CA'
+alias liquorstatus='curl -Is arcpy.asuscomm.com'
 
 alias jar='java -Xmx2G -Xms1G -jar'
 alias mc='java -server -Xmx4G -Xms2G -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:ParallelGCThreads=2 '
