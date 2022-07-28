@@ -25,8 +25,9 @@ def start_tmux_session():
 
     # === Another window with 2 panes
     os.system(f'tmux new-window -t {tmux_session_name} && \
-tmux rename-window -t {tmux_session_name}:1 More')
-#tmux split-window -v -t {tmux_session_name}:1.0')
+tmux rename-window -t {tmux_session_name}:1 liquor &&  \
+tmux split-window -v -t {tmux_session_name}:1.0 && \
+tmux split-window -h -t {tmux_session_name}:1.0')
 
     # Sets tmux powerline theme.
     os.system(f'tmux send-keys -t {tmux_session_name}:1.0 "vim" ENTER && \
@@ -56,8 +57,9 @@ if __name__ == '__main__':
         os.system(f'tmux send-keys -t {tmux_session_name}:0.7 "sandownbot" ENTER')  # Start channel17 bot
         lprint(filename, "INFO: Started bots in tmux session")
 
-    if 'startapps' in sys.argv:
-        os.system(f'tmux send-keys -t {tmux_session_name}:1.0 bpytop ENTER')  # Start bpytop
+    if 'startliquor' in sys.argv:
+        os.system(f'tmux send-keys -t {tmux_session_name}:1.0 logliquor ENTER')
+        os.system(f'tmux send-keys -t {tmux_session_name}:1.1 "cd ~/git/liquor_site && ./bin/gunicorn_start" ENTER')
 
     if 'startservers' in sys.argv:
         os.system(f'tmux send-keys -t {tmux_session_name}:0.0 "srcslime && python3 ~/git/slime_server/source/run_bot.py startserver" ENTER')
