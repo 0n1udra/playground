@@ -25,7 +25,7 @@ if os.system(f'tmux ls | grep {sess_name}'):
 
 def check_liquor_site():
     # Checks liquor_site status, if offline sends Discord message.
-    if not os.system('curl -Is arcpy.asuscomm.com | grep OK'):
+    if not os.system('curl -Is https://arcpy.asuscomm.com | grep OK'):
         with open('lsite_status', 'w+') as f: f.write('online')
     else:
         x = ''
