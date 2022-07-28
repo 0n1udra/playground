@@ -27,6 +27,6 @@ if __name__ == '__main__':
 
     powerdown()
     if '--restart' in sys.argv:
-        os.system("python3 ~/git/playground/scripts/matsumoto.py ArcPy: Restarting (slime_server)")
+        os.system("python3 ~/git/playground/scripts/matsumoto.py ArcPy: Restarting '(powerdown.py)'")
         os.system(f"sudo reboot")
     else: os.system(f"sudo shutdown +1")

@@ -9,7 +9,7 @@ filename = 'watcher.py'
 if os.system(f'tmux ls | grep {sess_name}'):
 
     lprint(filename, "INFO: Tmux 'sess' not found. Executing tmux_setup.py")
-    if os.system(f'python3 ~/git/playground/scripts/tmux_setup.py starttmux startbots startapps attachtmux'):
+    if os.system(f'python3 ~/git/playground/scripts/tmux_setup.py starttmux startbots'):
         lprint(filename, "ERROR: Executing tmux_setup.py")
     else:
         lprint(filename, "INFO: Finished tmux_setup.py")
