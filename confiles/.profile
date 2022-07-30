@@ -79,8 +79,8 @@ alias ic='echo Item count: $(ls | wc -l)'
 alias gosteam="cd ~/.steam/steam/steamapps/common/"
 alias gomc='cd ~/Games/Minecraft'
 alias gogit='cd ~/git'
-alias goliquor='cd ~/git/liquor_bot/source'
-alias goliquorsite='cd ~/git/liquor_site/'
+alias goliquorbot='cd ~/git/liquor_bot/source'
+alias goliquorsite='cd /srv/liquor_site/'
 alias goconfig='cd ~/git/Personal/Config_Files'
 alias goslime='cd ~/git/slime_server/source'
 alias gotensei='cd ~/git/TenseiPy/source'
@@ -132,7 +132,7 @@ alias run='python3 manage.py runserver'
 alias mrun='migrate && run'
 alias csuper='python3 manage.py createsuperuser'
 alias srcdjango='source ~/pyenv/django_env/bin/activate'
-alias liquorsite='cd ~/git/liquor_site/ && ./bin/gunicorn_start'
+alias liquorsite='cd /srv/liquor_site/ && ./bin/gunicorn_start'
 
 # === Python
 alias python='python3'
@@ -160,7 +160,6 @@ function duh { du -shc ${1:-./}* | grep -E "M|G|K|0" | sort -h;}
 alias getip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias btop='bpytop'
 alias wolarc='wakeonlan 00:22:4D:69:AA:CA'
-alias liquorstatus='curl -Is arcpy.asuscomm.com'
 
 alias jar='java -Xmx2G -Xms1G -jar'
 alias mc='java -server -Xmx4G -Xms2G -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:ParallelGCThreads=2 '
@@ -171,12 +170,39 @@ alias logpwr='fless /var/log/pwrstatd.log'
 alias logauth='fless /var/log/auth.log'
 alias logfail='fless /var/log/faillog'
 alias logboot='fless /var/log/faillog'
-alias logliquor='fless ~/git/liquor_site/logs/liquor_backend.log'
 #alias logval='cd ~/Games/valheim/log/console/vhserver-console.log | grep "/2022"'
 
 # ===== ArcPy
 alias valheimupdate='steamcmd +login anonymous +app_update 896660 +exit'
 alias valheimbackup='cp -r ~/.config/unity3d/IronGate/Valheim/ /mnt/raid1/server_backup/'
 alias zomboidupdate='steamcmd +login anonymous +app_update 380870 +exit'
+
+# ===== Nginx
+alias rnginx='sudo systemctl restart nginx'
+alias snginx='sudo systemctl status nginx'
+alias hnginx='sudo systemctl stop nginx'
+alias vinginx='sudoedit /etc/nginx/nginx.conf'
+alias vinginxliquor='sudoedit /etc/nginx/sites-available/liquor_site.conf'
+
+# ===== systemctl, systemd
+alias sysstart='sudo systemctl start'
+alias sysrestart='sudo systemctl restart'
+alias sysstop='sudo systemctl stop'
+alias sysstatus='sudo systemctl status'
+alias sysreload='sudo systemctl reload'
+alias sysenable='sudo systemctl enable'
+alias sysdisable='sudo systemctl disable'
+
+alias sysrestartliquor='sudo systemctl restart gunicorn.socket gunicorn.service nginx'
+alias sysstatusliquor='sudo systemctl status gunicorn.socket gunicorn.service nginx'
+
+alias viliquorservice='sudoedit /etc/systemd/system/gunicorn.service'
+
+
+# ===== nhliquors
+alias logliquor='fless /srv/liquor_site/logs/liquor_backend.log'
+alias logerrorliquor='fless /srv/liquor_site/logs/nginx-error.log'
+alias logaccessliquor='fless /srv/liquor_site/logs/nginx-access.log'
+alias liquorstatus='curl -Is nhliquors.com'
 
 #clear
