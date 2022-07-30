@@ -203,6 +203,6 @@ alias viliquorservice='sudoedit /etc/systemd/system/gunicorn.service'
 alias logliquor='fless /srv/liquor_site/logs/liquor_backend.log'
 alias logerrorliquor='fless /srv/liquor_site/logs/nginx-error.log'
 alias logaccessliquor='fless /srv/liquor_site/logs/nginx-access.log'
-alias liquorstatus='curl -Is nhliquors.com'
+alias liquorstatus='curl -Is https://nhliquors.com'
 
 #clear
