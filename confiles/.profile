@@ -29,9 +29,9 @@ export COLOR_LIGHT_GRAY='\e[0;37m'
 export COLOR_WHITE='\e[1;37m'
 
 
-# Highlight the user name when logged in as root.
-if [[ "${USER}" == "root" ]]; then userStyle="${white}"; fi;
-if [[ "${USER}" == "arcpy" ]]; then userStyle="${blue}"; fi;
+# Highlight the user name when logged in as root, everyone else not set gets blue.
+if [[ "${USER}" == "root" ]]; then userStyle="${white}"; else userStyle="${blue}"; fi;
+if [[ "${USER}" == "arcpy" ]]; then userStyle="${COLOR_PURPLE}"; fi;
 if [[ "${USER}" == "pop_mbp" ]]; then userStyle="${yellow}"; fi;
 if [[ "${USER}" == "0n1udra-MBP" ]]; then userStyle="${red}"; fi;
 if [[ "${USER}" == "0n1udra" ]]; then userStyle="${COLOR_CYAN}"; fi;
