@@ -1,11 +1,16 @@
-Host desktop
-    Hostname 192.168.1.114
-    User 0n1udra
+Host nhliquors
+    Hostname 143.198.127.156
+    User nhliquors
     Port 22
 
 Host mbp
+    Hostname 192.168.1.67
+    User 0n1udra-MBP
+    Port 22
+
+Host mbp13
     Hostname 192.168.1.127
-    User pop_mbp
+    User mbp13
     Port 22
 
 Host arcpy
