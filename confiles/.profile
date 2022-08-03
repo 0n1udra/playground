@@ -151,7 +151,9 @@ alias tsetupb='python3 ~/git/playground/scripts/tmux_setup.py basic'
 alias tsetupapp='python3 ~/git/playground/scripts/tmux_setup.py starttmux startapp startbots'
 alias tsetupall='python3 ~/git/playground/scripts/tmux_setup.py starttmux startapp startbots attachtmux'
 
-alias killl='python ~/git/playground/scripts/kill_league.py kill'
+alias pkill='python ~/git/playground/scripts/pkill.py'
+alias dkill='python ~/git/playground/scripts/pkill.py discord'
+alias lkill='python ~/git/playground/scripts/pkill.py kill'
 alias cs='shutdown -c; python3 ~/git/playground/scripts/desktop_powerdown.py stop'
 
 # === Custom Scripts & Commands/Functions
