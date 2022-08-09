@@ -112,7 +112,7 @@ alias vhserver='tmuxa vhserver'
 
 # === rsync
 alias async='rsync -Pav --delete'
-alias usync='rsync -Pauv'
+alias usync='rsync -Puv'
 alias isync='usync --ignore-existing'
 alias dsync='usync --ignore-existing --delete'
 alias dasyncliquorphotos='dsync ~/Pictures/liquor_boxes/ arcpy:~/Pictures/liquor_boxes/'
