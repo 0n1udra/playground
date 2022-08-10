@@ -113,7 +113,7 @@ alias vhserver='tmuxa vhserver'
 # === rsync
 alias async='rsync -Pav --delete'
 alias usync='rsync -Puv'
-alias isync='usync --ignore-existing'
+alias isync='async --ignore-existing'
 alias dsync='usync --ignore-existing --delete'
 alias dasyncliquorphotos='dsync ~/Pictures/liquor_boxes/ arcpy:~/Pictures/liquor_boxes/'
 
@@ -196,6 +196,7 @@ alias sysenable='sudo systemctl enable'
 alias sysdisable='sudo systemctl disable'
 
 alias sysrestartliquor='sudo systemctl restart gunicorn.socket gunicorn.service nginx'
+alias sysstopliquor='sudo systemctl stop gunicorn.socket gunicorn.service nginx'
 alias sysstatusliquor='sudo systemctl status gunicorn.socket gunicorn.service nginx'
 
 alias viliquorservice='sudoedit /etc/systemd/system/gunicorn.service'
@@ -206,5 +207,6 @@ alias logliquor='fless /srv/liquor_site/logs/liquor_backend.log'
 alias logerrorliquor='fless /srv/liquor_site/logs/nginx-error.log'
 alias logaccessliquor='fless /srv/liquor_site/logs/nginx-access.log'
 alias liquorstatus='curl -Is https://nhliquors.com'
+alias updateliquor='sudo cp -r /srv/liquor_site/* /srv/liquor.bak/ && sudo cp -r ~/liquor_update/* /srv/liquor_site/ && sudo sysrestartliquor'
 
 #clear
