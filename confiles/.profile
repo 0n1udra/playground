@@ -153,7 +153,7 @@ alias tsetupall='python3 ~/git/playground/scripts/tmux_setup.py starttmux starta
 
 alias pkill='python ~/git/playground/scripts/pkill.py'
 alias dkill='python ~/git/playground/scripts/pkill.py discord'
-alias lkill='python ~/git/playground/scripts/pkill.py kill'
+alias lkill='python ~/git/playground/scripts/pkill.py league'
 alias cs='shutdown -c; python3 ~/git/playground/scripts/desktop_powerdown.py stop'
 
 # === Custom Scripts & Commands/Functions
