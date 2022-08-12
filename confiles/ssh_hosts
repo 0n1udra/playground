@@ -1,32 +1,30 @@
 Host nhliquors
     Hostname 143.198.127.156
     User nhliquors
-    Port 22
+
+Host desktop
+    Hostname 192.168.1.114
+    User 0n1udra
 
 Host mbp
     Hostname 192.168.1.67
     User 0n1udra-MBP
-    Port 22
 
 Host mbp13
     Hostname 192.168.1.127
     User mbp13
-    Port 22
 
 Host arcpy
     Hostname 192.168.1.189
     User arcpy
-    Port 22
     KexAlgorithms +diffie-hellman-group1-sha1
 
 Host asus
     HostName 192.168.1.1
     User RippleMelmanWIFI
-    port 22
 
 Host linksys
     HostName 192.168.1.2
     User root
-    port 22
     KexAlgorithms +diffie-hellman-group1-sha1
 
