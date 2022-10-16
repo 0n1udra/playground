@@ -29,8 +29,8 @@ export COLOR_LIGHT_GRAY='\e[0;37m'
 export COLOR_WHITE='\e[1;37m'
 
 
-# Highlight the user name when logged in as root, everyone else not set gets blue.
-if [[ "${USER}" == "root" ]]; then userStyle="${white}"; else userStyle="${blue}"; fi;
+# Highlight the user name when logged in as root.
+if [[ "${USER}" == "root" ]]; then userStyle="${white}"; fi;
 if [[ "${USER}" == "arcpy" ]]; then userStyle="${COLOR_PURPLE}"; fi;
 if [[ "${USER}" == "pop_mbp" ]]; then userStyle="${yellow}"; fi;
 if [[ "${USER}" == "0n1udra-MBP" ]]; then userStyle="${red}"; fi;
@@ -124,7 +124,7 @@ alias cpprofile='cp ~/.profile ~/git/playground/confiles/'
 alias updateprofile='cp ~/git/playground/confiles/.profile ~/'
 alias adplay='scp -r arcpy:~/git/playground/ ~/git/'
 alias adprofile='scp arcpy:~/.profile ~/git/playground/confiles/'
-alias dnliquor='scp -r ~/git/liquor_site/* nhliquors:~/liquor_update/'
+alias dnliquor='sudo scp -r dekstop:~/git/liquor_site/ ~/'
 alias daliquor='sudo scp -r desktop:~/git/liquor_site /mnt/raid1/projects/'
 alias daplay='scp -r ~/git/playground/ arcpy:~/git/'
 
@@ -144,7 +144,6 @@ alias srcslime='source ~/pyenvs/discord2/bin/activate'
 alias srcpycord='source ~/pyenvs/pycord/bin/activate'
 alias srcliquor='source ~/pyenvs/liquor_site/bin/activate'
 
-alias pi='pyinstaller --clean -F -w'
 
 # Discord Bots
 alias dmsg='python ~/git/playground/scripts/matsumoto.py'
@@ -171,6 +170,7 @@ alias getip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias btop='bpytop'
 alias ntop='watch1 nvidia-smi'
 alias wolarc='wakeonlan 00:22:4D:69:AA:CA'
+alias liquorstatus='curl -Is arcpy.asuscomm.com'
 
 alias jar='java -Xmx2G -Xms1G -jar'
 alias mc='java -server -Xmx4G -Xms2G -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:ParallelGCThreads=2 '
@@ -181,6 +181,7 @@ alias logpwr='fless /var/log/pwrstatd.log'
 alias logauth='fless /var/log/auth.log'
 alias logfail='fless /var/log/faillog'
 alias logboot='fless /var/log/faillog'
+alias logliquor='fless ~/git/liquor_site/logs/liquor_backend.log'
 #alias logval='cd ~/Games/valheim/log/console/vhserver-console.log | grep "/2022"'
 
 # ===== ArcPy
