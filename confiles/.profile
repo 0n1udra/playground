@@ -58,11 +58,11 @@ alias diff='diff --color'
 alias df='df -Th --total'
 alias dfa='df -Tha --total'
 alias fless='less +F'
+alias watch1='watch -c -n 1'
 alias grep='grep --color'
 alias ngrep='grep -rnwiI ./ -e'
 
-# Doesn't show ./ ../
-
+# NOTE: Doesn't show ./ ../
 alias ls='ls -AF --group-directories-first --color'
 alias lnc='ls -AF --group-directories-first --color=no'
 # Mac can't take args with --
@@ -112,8 +112,9 @@ alias sess='tmuxa sess'
 alias vhserver='tmuxa vhserver'
 
 # === rsync
-alias async='rsync -Pav --delete'
-alias usync='rsync -Puv'
+alias rsync='rsync -hvP --stats'
+alias async='rsync -a --delete'
+alias usync='rsync -u'
 alias isync='async --ignore-existing'
 alias dsync='usync --ignore-existing --delete'
 alias dasyncliquorphotos='dsync ~/Pictures/liquor_boxes/ arcpy:~/Pictures/liquor_boxes/'
@@ -123,26 +124,32 @@ alias cpprofile='cp ~/.profile ~/git/playground/confiles/'
 alias updateprofile='cp ~/git/playground/confiles/.profile ~/'
 alias adplay='scp -r arcpy:~/git/playground/ ~/git/'
 alias adprofile='scp arcpy:~/.profile ~/git/playground/confiles/'
-alias daliquor='sudo scp -r desktop:~/git/liquor_site/ ~/git/'
-alias adliquor='sudo scp -r arcpy:~/git/liquor_site/ ~/git/'
+alias dnliquor='scp -r ~/git/liquor_site/* nhliquors:~/liquor_update/'
+alias daliquor='sudo scp -r desktop:~/git/liquor_site /mnt/raid1/projects/'
 alias daplay='scp -r ~/git/playground/ arcpy:~/git/'
 
 # === Django
 alias migrate='python3 manage.py makemigrations && python3 manage.py migrate'
-alias run='python3 manage.py runserver'
+alias srcdjango='source ~/pyenvs/liquor_site/bin/activate'
+alias run='srcdjango && python3 manage.py runserver'
 alias mrun='migrate && run'
 alias csuper='python3 manage.py createsuperuser'
-alias srcdjango='source ~/pyenv/django_env/bin/activate'
 alias liquorsite='cd /srv/liquor_site/ && ./bin/gunicorn_start'
 
 # === Python
 alias python='python3'
-alias srcslime='source ~/pyenvs/slime_server/bin/activate'
+alias sdwebui='source ~/pyenvs/sdiffusion/bin/activate && cd ~/git/stable-diffusion-webui && python webui.py --medvram --opt-split-attention --listen'
+alias sdwebuilow='source ~/pyenvs/sdiffusion/bin/activate && cd ~/git/stable-diffusion-webui && python webui.py --lowvram --opt-split-attention --listen'
+alias srcslime='source ~/pyenvs/discord2/bin/activate'
+alias srcpycord='source ~/pyenvs/pycord/bin/activate'
 alias srcliquor='source ~/pyenvs/liquor_site/bin/activate'
+
+alias pi='pyinstaller --clean -F -w'
+
 # Discord Bots
 alias dmsg='python ~/git/playground/scripts/matsumoto.py'
 alias startbots='python3 ~/git/playground/scripts/tmux_setup.py startbots'
-alias slimebot='srcslime && goslime && python3 slime_bot.py'
+alias slimebot='srcslime && goslime && python3 run_bot.py startbot'
 alias sandownbot="srcslime && gosandown && python3 channel17_bot.py"
 alias liquorbot="deactivate; cd ~/git/liquor_bot/source/ && python3 liquor_bot.py"
 
@@ -162,6 +169,7 @@ function duh { du -shc ${1:-./}* | grep -E "M|G|K|0" | sort -h;}
 
 alias getip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias btop='bpytop'
+alias ntop='watch1 nvidia-smi'
 alias wolarc='wakeonlan 00:22:4D:69:AA:CA'
 
 alias jar='java -Xmx2G -Xms1G -jar'
