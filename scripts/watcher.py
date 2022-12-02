@@ -24,7 +24,8 @@ def checkbots():
     Sends Discord message of what bots are offline
     """
 
-    discord_bots = {'slime': 'run_bot.py', 'liquor': 'liquor_bot.py', 'channel17': 'channel17_bot.py'}
+    # , 'liquor': 'liquor_bot.py'
+    discord_bots = {'slime': 'run_bot.py', 'channel17': 'channel17_bot.py'}
     for proc in psutil.process_iter():
         for k, v in discord_bots.items():
             if v in proc.cmdline() and 'watcher.py' not in proc.cmdline():

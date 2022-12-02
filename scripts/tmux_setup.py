@@ -53,7 +53,7 @@ if __name__ == '__main__':
     if 'startbots' in sys.argv:
         # Must have aliases in bash profile
         #os.system(f'tmux send-keys -t {tmux_session_name}:1.1 "liquorsite" ENTER')
-        os.system(f'tmux send-keys -t {tmux_session_name}:0.5 "liquorbot" ENTER')  # Start liquor_bot
+        #os.system(f'tmux send-keys -t {tmux_session_name}:0.5 "liquorbot" ENTER')  # Start liquor_bot
         os.system(f'tmux send-keys -t {tmux_session_name}:0.6 "slimebot" ENTER')  # Start slime_server bot
         os.system(f'tmux send-keys -t {tmux_session_name}:0.7 "sandownbot" ENTER')  # Start channel17 bot
         lprint(filename, "INFO: Started bots in tmux session")
