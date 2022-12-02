@@ -1,4 +1,5 @@
-import datetime, discord, sys, os
+import discord, sys, os
+from discord.ext import commands
 from extra import lprint
 
 # Not for running 24/7, just to send a message to the channel
@@ -16,7 +17,9 @@ else:
     print("Missing Token File:", token_file)
     sys.exit()
 
-bot = discord.Client(command_prefix='.')
+intents = discord.Intents.default()
+intents.message_content = True
+bot = commands.Bot(command_prefix='.', case_insensitive=True, intents=intents)
 msg = ''
 
 @bot.event
