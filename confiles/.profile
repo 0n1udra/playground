@@ -2,8 +2,10 @@
 if [ $(uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip') ];
 then
     HOM="/mnt/c/Users/0n1udra"
+    GIT="/mnt/c/Users/0n1udra/git"
 else
     HOM=~/
+    GIT=~/git
 fi
 USER=$(whoami)
 #                   ========== Terminal UI ==========
@@ -59,6 +61,7 @@ export EDITOR='vim'
 set -o vi # Vi mode with ctrl-[
 alias sudo='sudo ' # Enable aliases to be sudo’ed
 alias vi='vim'
+alias suvi='sudo vi'
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 alias lsblko='lsblk -o KNAME,TYPE,SIZE,MODEL'
@@ -87,10 +90,9 @@ alias ic='echo Item count: $(ls | wc -l)'
 alias godt="cd /mnt/c/Users/0n1udra"
 alias gosteam="cd ~/.steam/steam/steamapps/common/"
 alias gomc='cd $HOM/Games/Minecraft'
-alias gogit='cd $HOM/git'
+alias gogit='cd $GIT'
 alias goliquorbot='cd $HOM/git/liquor_bot/source'
-alias goliquorsite='cd /srv/liquor_site/'
-alias gogliquorsite='cd $HOM/git/liquor_site/'
+alias goliquorsite='cd $GIT/liquor_site/'
 alias goconfig='cd $HOM/git/Personal/Config_Files'
 alias goslime='cd $HOM/git/slime_server/source'
 alias gotensei='cd $HOM/git/TenseiPy/source'
@@ -129,7 +131,7 @@ alias dsync='usync --ignore-existing --delete'
 alias dasyncliquorphotos='dsync $HOM/Pictures/liquor_boxes/ arcpy:~/Pictures/liquor_boxes/'
 
 # === git
-alias cpprofile='cp ~/.profile $HOM/git/playground/confiles/'
+alias uploadprofile='cp ~/.profile $HOM/git/playground/confiles/'
 alias updateprofile='cp $HOM/git/playground/confiles/.profile ~/'
 alias adplay='scp -r arcpy:~/git/playground/ $HOM/git/'
 alias adprofile='scp arcpy:~/.profile $HOM/git/playground/confiles/'
@@ -141,6 +143,7 @@ alias daplay='scp -r $HOM/git/playground/ arcpy:~/git/'
 alias migrate='python3 manage.py makemigrations && python3 manage.py migrate'
 alias srcdjango='source ~/pyenvs/liquor_site/bin/activate'
 alias run='srcdjango && python3 manage.py runserver'
+alias runl='srcdjango && cd $GIT/liquor_site/liquor_project && python3 manage.py runsslserver 192.168.1.114:8000 --certificate liquor_files/cert.pem --key liquor_files/key.pem '
 alias mrun='migrate && run'
 alias csuper='python3 manage.py createsuperuser'
 alias liquorsite='cd /srv/liquor_site/ && ./bin/gunicorn_start'
