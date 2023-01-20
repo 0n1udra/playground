@@ -39,8 +39,8 @@ export COLOR_LIGHT_GRAY='\e[0;37m'
 export COLOR_WHITE='\e[1;37m'
 
 
-# Highlight the user name when logged in as root.
-if [[ "${USER}" == "root" ]]; then userStyle="${white}"; fi;
+# Highlight the user name when logged in as root, everyone else not set gets blue.
+if [[ "${USER}" == "root" ]]; then userStyle="${white}"; else userStyle="${blue}"; fi;
 if [[ "${USER}" == "arcpy" ]]; then userStyle="${COLOR_PURPLE}"; fi;
 if [[ "${USER}" == "pop_mbp" ]]; then userStyle="${yellow}"; fi;
 if [[ "${USER}" == "0n1udra-MBP" ]]; then userStyle="${red}"; fi;
@@ -61,7 +61,7 @@ export EDITOR='vim'
 set -o vi # Vi mode with ctrl-[
 alias sudo='sudo ' # Enable aliases to be sudo’ed
 alias vi='vim'
-alias suvi='sudo vi'
+alias suvi='sudo vim'
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 alias lsblko='lsblk -o KNAME,TYPE,SIZE,MODEL'
@@ -73,7 +73,8 @@ alias watch1='watch -c -n 1'
 alias grep='grep --color'
 alias ngrep='grep -rnwiI ./ -e'
 
-# NOTE: Doesn't show ./ ../
+# Doesn't show ./ ../
+
 alias ls='ls -AF --group-directories-first --color'
 alias lnc='ls -AF --group-directories-first --color=no'
 # Mac can't take args with --
@@ -217,18 +218,22 @@ alias sysreload='sudo systemctl reload'
 alias sysenable='sudo systemctl enable'
 alias sysdisable='sudo systemctl disable'
 
-alias sysrestartliquor='sudo systemctl restart gunicorn.socket gunicorn.service nginx'
-alias sysstopliquor='sudo systemctl stop gunicorn.socket gunicorn.service nginx'
-alias sysstatusliquor='sudo systemctl status gunicorn.socket gunicorn.service nginx'
-
-alias viliquorservice='sudoedit /etc/systemd/system/gunicorn.service'
 
 
 # ===== nhliquors
+alias liquorperms='sudo chown -R www-data:www-data /srv && sudo chmod -R g+wr /srv'
 alias logliquor='fless /srv/liquor_site/logs/liquor_backend.log'
 alias logerrorliquor='fless /srv/liquor_site/logs/nginx-error.log'
 alias logaccessliquor='fless /srv/liquor_site/logs/nginx-access.log'
 alias liquorstatus='curl -Is https://nhliquors.com'
-alias updateliquor='sudo cp -r /srv/liquor_site/* /srv/liquor.bak/ && sudo cp -r ~/liquor_update/* /srv/liquor_site/ && sudo sysrestartliquor'
+alias liquorupdate='sudo rm -rf /srv/liq.bak && sudo cp -r /srv/liquor_site /srv/liquor.bak && sudo cp -r ~/liquor_update/* /srv/liquor_site/ && sudo sysrestartliquor'
+alias liquorbackup='sudo rm -rf /srv/liq.bak; sudo cp -r /srv/liquor_site /srv/liquor.bak'
+
+alias sysrestartliquor='sudo systemctl restart gunicorn.socket gunicorn.service nginx.service'
+alias sysstopliquor='sudo systemctl stop gunicorn.socket gunicorn.service nginx.service'
+alias sysstatusliquor='sudo systemctl status gunicorn.socket gunicorn.service nginx.service'
+
+alias viliquorservice='sudoedit /etc/systemd/system/gunicorn.service'
 
 #clear
+
