@@ -144,7 +144,7 @@ alias daplay='scp -r $HOM/git/playground/ arcpy:~/git/'
 alias migrate='python3 manage.py makemigrations && python3 manage.py migrate'
 alias srcdjango='source ~/pyenvs/liquor_site/bin/activate'
 alias run='srcdjango && python3 manage.py runserver'
-alias runl='srcdjango && cd $GIT/liquor_site/liquor_project && python3 manage.py runsslserver 192.168.1.114:8000 --certificate liquor_files/cert.pem --key liquor_files/key.pem '
+alias runl='srcdjango && cd $GIT/liquor_site/liquor_project && python3 manage.py migrate && python3 manage.py runsslserver 192.168.1.114:8000 --certificate liquor_files/cert.pem --key liquor_files/key.pem '
 alias mrun='migrate && run'
 alias csuper='python3 manage.py createsuperuser'
 alias liquorsite='cd /srv/liquor_site/ && ./bin/gunicorn_start'
@@ -235,5 +235,6 @@ alias sysstatusliquor='sudo systemctl status gunicorn.socket gunicorn.service ng
 
 alias viliquorservice='sudoedit /etc/systemd/system/gunicorn.service'
 
+alias fromnhliquors='async nhliquors:/srv/liquor_site/* $GIT/liquor_site/'
 #clear
 
