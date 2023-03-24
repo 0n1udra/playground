@@ -13,9 +13,10 @@ for i in range(8):
         if os.system(f'tmux ls | grep {sess_name}'):
             lprint(filename, "INFO: Tmux 'sess' not found. Executing tmux_setup.py")
             if os.system(f'python3 ~/git/playground/scripts/tmux_setup.py starttmux startbots'):
-                os.system(f"python3 ~/git/playground/scripts/matsumoto.py 'Arcpy: Tmux session initiated'")
                 lprint(filename, "ERROR: Executing tmux_setup.py")
-            else: lprint(filename, "INFO: Finished tmux_setup.py")
+            else:
+                os.system(f"python3 ~/git/playground/scripts/matsumoto.py 'Arcpy: Tmux session initiated'")
+                lprint(filename, "INFO: Finished tmux_setup.py")
         break
 
 def checkbots():
