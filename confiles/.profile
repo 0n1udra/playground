@@ -43,7 +43,7 @@ export COLOR_WHITE='\e[1;37m'
 if [[ "${USER}" == "root" ]]; then userStyle="${white}"; else userStyle="${blue}"; fi;
 if [[ "${USER}" == "arcpy" ]]; then userStyle="${COLOR_PURPLE}"; fi;
 if [[ "${USER}" == "pop_mbp" ]]; then userStyle="${yellow}"; fi;
-if [[ "${USER}" == "0n1udra-MBP" ]]; then userStyle="${red}"; fi;
+if [[ "${USER}" == "dt" ]]; then userStyle="${red}"; fi;
 if [[ "${USER}" == "0n1udra" ]]; then userStyle="${COLOR_CYAN}"; fi;
 
 # Set the terminal title and prompt.
@@ -124,7 +124,7 @@ alias sess='tmuxa sess'
 alias vhserver='tmuxa vhserver'
 
 # === rsync
-alias rsync='rsync -hvP --stats'
+alias rsync='rsync -hvPr --stats'
 alias async='rsync -a --delete'
 alias usync='rsync -u'
 alias isync='async --ignore-existing'
@@ -132,8 +132,8 @@ alias dsync='usync --ignore-existing --delete'
 alias dasyncliquorphotos='dsync $HOM/Pictures/liquor_boxes/ arcpy:~/Pictures/liquor_boxes/'
 
 # === git
-alias uploadprofile='cp ~/.profile $HOM/git/playground/confiles/'
-alias updateprofile='cp $HOM/git/playground/confiles/.profile ~/'
+alias upprofile='cp ~/.profile $HOM/git/playground/confiles/'
+alias downprofile='cp $HOM/git/playground/confiles/.profile ~/'
 alias adplay='scp -r arcpy:~/git/playground/ $HOM/git/'
 alias adprofile='scp arcpy:~/.profile $HOM/git/playground/confiles/'
 alias dnliquor='sudo scp -r dekstop:$HOM/git/liquor_site/ ~/'
