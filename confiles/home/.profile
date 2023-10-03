@@ -1,13 +1,13 @@
 # Set user. Needed because this is missing when go into tmux session.
 if [ $(uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip') ];
+USER=$(whoami)
 then
-    HOM="/mnt/c/Users/0n1udra"
-    GIT="/mnt/c/Users/0n1udra/git"
+    HOM="/mnt/c/Users/${USER}"
+    GIT="/mnt/c/Users/${USER}/git"
 else
     HOM=~/
     GIT=~/git
 fi
-USER=$(whoami)
 #                   ========== Terminal UI ==========
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
 	export TERM='gnome-256color';
@@ -43,8 +43,7 @@ export COLOR_WHITE='\e[1;37m'
 if [[ "${USER}" == "root" ]]; then userStyle="${white}"; else userStyle="${blue}"; fi;
 if [[ "${USER}" == "arcpy" ]]; then userStyle="${COLOR_PURPLE}"; fi;
 if [[ "${USER}" == "pop_mbp" ]]; then userStyle="${yellow}"; fi;
-if [[ "${USER}" == "dt" ]]; then userStyle="${red}"; fi;
-if [[ "${USER}" == "0n1udra" ]]; then userStyle="${COLOR_CYAN}"; fi;
+if [[ "${USER}" == "secr" ]]; then userStyle="${red}"; fi;
 
 # Set the terminal title and prompt.
 PS1="\[${orange}\]\H"; # Host Computer name
@@ -88,7 +87,7 @@ alias ic='echo Item count: $(ls | wc -l)'
 
 
 # === Paths
-alias godt="cd /mnt/c/Users/0n1udra"
+alias gohost="cd /mnt/c/Users/Secr"
 alias gosteam="cd ~/.steam/steam/steamapps/common/"
 alias gomc='cd $HOM/Games/Minecraft'
 alias gogit='cd $GIT'
@@ -155,7 +154,7 @@ alias sdwebui='source $HOM/pyenvs/sdiffusion/bin/activate && cd $HOM/git/stable-
 alias sdwebuilow='source $HOM/pyenvs/sdiffusion/bin/activate && cd $HOM/git/stable-diffusion-webui && python webui.py --lowvram --opt-split-attention --listen'
 alias srcslime='source ~/pyenvs/discord2/bin/activate'
 alias srcpycord='source ~/pyenvs/pycord/bin/activate'
-alias srcliquor='source ~/pyenvs/liquor_site/bin/activate'
+alias srcliquor='source ~/pyenvs/django/bin/activate'
 
 
 # Discord Bots
