@@ -68,7 +68,6 @@ alias diff='diff --color'
 alias df='df -Th --total'
 alias dfa='df -Tha --total'
 alias fless='less +F'
-alias watch1='watch -c -n 1'
 alias grep='grep --color'
 alias ngrep='grep -rnwiI ./ -e'
 
@@ -123,9 +122,8 @@ alias sess='tmuxa sess'
 alias vhserver='tmuxa vhserver'
 
 # === rsync
-alias rsync='rsync -hvPr --stats'
-alias async='rsync -a --delete'
-alias usync='rsync -u'
+alias async='rsync -Pav --delete'
+alias usync='rsync -Pauv'
 alias isync='async --ignore-existing'
 alias dsync='usync --ignore-existing --delete'
 alias dasyncliquorphotos='dsync $HOM/Pictures/liquor_boxes/ arcpy:~/Pictures/liquor_boxes/'
@@ -150,13 +148,8 @@ alias liquorsite='cd /srv/liquor_site/ && ./bin/gunicorn_start'
 
 # === Python
 alias python='python3'
-alias sdwebui='source $HOM/pyenvs/sdiffusion/bin/activate && cd $HOM/git/stable-diffusion-webui && python webui.py --medvram --opt-split-attention --listen'
-alias sdwebuilow='source $HOM/pyenvs/sdiffusion/bin/activate && cd $HOM/git/stable-diffusion-webui && python webui.py --lowvram --opt-split-attention --listen'
-alias srcslime='source ~/pyenvs/discord2/bin/activate'
-alias srcpycord='source ~/pyenvs/pycord/bin/activate'
-alias srcliquor='source ~/pyenvs/django/bin/activate'
-
-
+alias srcslime='source ~/pyenvs/slime_server/bin/activate'
+alias srcliquor='source ~/pyenvs/liquor_site/bin/activate'
 # Discord Bots
 alias dmsg='python $HOM/git/playground/scripts/matsumoto.py'
 alias startbots='python3 $HOM/git/playground/scripts/tmux_setup.py startbots'
@@ -193,8 +186,7 @@ alias logpwr='fless /var/log/pwrstatd.log'
 alias logauth='fless /var/log/auth.log'
 alias logfail='fless /var/log/faillog'
 alias logboot='fless /var/log/faillog'
-alias logliquor='fless $HOM/git/liquor_site/logs/liquor_backend.log'
-#alias logval='cd $HOM/Games/valheim/log/console/vhserver-console.log | grep "/2022"'
+#alias logval='cd ~/Games/valheim/log/console/vhserver-console.log | grep "/2022"'
 
 # ===== ArcPy
 alias valheimupdate='steamcmd +login anonymous +app_update 896660 +exit'
@@ -217,23 +209,32 @@ alias sysreload='sudo systemctl reload'
 alias sysenable='sudo systemctl enable'
 alias sysdisable='sudo systemctl disable'
 
+# ===== journalctl
+alias journalctl='journalctl -fxe'
+
 
 
 # ===== nhliquors
+alias sysstatusliquor='sudo systemctl status gunicorn.socket gunicorn.service nginx.service'
+alias sysrestartliquor='chmod +x /srv/liquor_site/bin/gunicorn_start && \
+    sudo systemctl restart gunicorn.socket gunicorn.service nginx.service && sysstatusliquor'
+alias sysstopliquor='sudo systemctl stop gunicorn.socket gunicorn.service nginx.service'
+alias sysstatusliquor='sudo systemctl status gunicorn.socket gunicorn.service nginx.service'
+alias syslog='sudo fless /var/log/syslog'
 alias liquorperms='sudo chown -R www-data:www-data /srv && sudo chmod -R g+wr /srv'
 alias logliquor='fless /srv/liquor_site/logs/liquor_backend.log'
 alias logerrorliquor='fless /srv/liquor_site/logs/nginx-error.log'
 alias logaccessliquor='fless /srv/liquor_site/logs/nginx-access.log'
 alias liquorstatus='curl -Is https://nhliquors.com'
-alias liquorupdate='sudo rm -rf /srv/liq.bak && sudo cp -r /srv/liquor_site /srv/liquor.bak && sudo cp -r ~/liquor_update/* /srv/liquor_site/ && sudo sysrestartliquor'
+alias liquorupdate='cd /srv/liquor_site/ && git stash && git pull && sysrestartliquor'
+#alias liquorupdate='sudo rm -rf /srv/liq.bak && sudo cp -r /srv/liquor_site /srv/liquor.bak && sudo cp -r ~/liquor_update/* /srv/liquor_site/ && sudo sysrestartliquor'
 alias liquorbackup='sudo rm -rf /srv/liq.bak; sudo cp -r /srv/liquor_site /srv/liquor.bak'
-
-alias sysrestartliquor='sudo systemctl restart gunicorn.socket gunicorn.service nginx.service'
-alias sysstopliquor='sudo systemctl stop gunicorn.socket gunicorn.service nginx.service'
-alias sysstatusliquor='sudo systemctl status gunicorn.socket gunicorn.service nginx.service'
-
 alias viliquorservice='sudoedit /etc/systemd/system/gunicorn.service'
+# Postgresql
+alias restartdb='sudo systemctl restart postgresql'
+alias logdb='sudo less /var/log/postgresql/postgresql-13-main.log'
 
-alias fromnhliquors='async nhliquors:/srv/liquor_site/* $GIT/liquor_site/'
+
+
 #clear
 
