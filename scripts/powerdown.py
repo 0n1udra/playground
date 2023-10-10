@@ -26,6 +26,9 @@ if __name__ == '__main__':
         reason = 'Slime_server command'
 
     powerdown()
+    if 'tmux' in sys.argv:
+        exit()
+
     if '--restart' in sys.argv:
         os.system("python3 ~/git/playground/scripts/matsumoto.py ArcPy: Restarting '(powerdown.py)'")
         os.system(f"sudo reboot")

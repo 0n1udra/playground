@@ -6,9 +6,23 @@ sess_name = 'sess'
 filename = 'watcher.py'
 
 # Tests for internet. Sends message to Discord channel if ping works, else will try for ~4min, 30s sleep.
+# Crontab will run this script every 10min
+failed_pings = 0
 for i in range(8):
-    if os.system('ping -c 2 1.1.1.1'): time.sleep(30)
-    else:
+    if os.system('ping -c 2 1.1.1.1'):  # If ping fails
+        # If ping fails 3 times, kill session.
+        # This script will start the session up again when ping is successful.
+        if failed_pings >= 3:  
+            os.system(f'python3 ~/git/playground/scripts/powerdown.py tmux')
+            time.sleep(3)
+            os.system(f'tmux kill-session -t {sess_name}')
+            lprint(filename, "INFO: Lost internet connection. Killed tmux session")
+            break
+        
+        failed_pings += 1
+        time.sleep(30)
+
+    else:  # If ping success
         # Checks if tmux session exists. os.system will return 0 if successful, so if anything else but zero it probably failed.
         if os.system(f'tmux ls | grep {sess_name}'):
             lprint(filename, "INFO: Tmux 'sess' not found. Executing tmux_setup.py")
@@ -51,8 +65,8 @@ def check_liquor_site():
 
 
 if __name__ == '__main__':
-    if 'lsite' in sys.argv:
-        check_liquor_site()
+    if 'lsite' in sys.argv: pass
+        #check_liquor_site()
 
     if 'checkbots' in sys.argv:
         checkbots()
