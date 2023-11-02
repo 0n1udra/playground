@@ -14,3 +14,4 @@ def lprint(location, text):
 
     # Logs output.
     with open(log_file, 'a') as file: file.write(output + '\n')
+    print(output)
