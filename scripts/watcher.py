@@ -10,9 +10,9 @@ filename = 'watcher.py'
 failed_pings = 0
 for i in range(8):
     if os.system('ping -c 2 1.1.1.1'):  # If ping fails
-        # If ping fails 3 times, kill session.
+        # If ping fails x times, kill session.
         # This script will start the session up again when ping is successful.
-        if failed_pings >= 3:  
+        if failed_pings >= 5:  
             os.system(f'python3 ~/git/playground/scripts/powerdown.py tmux')
             time.sleep(3)
             os.system(f'tmux kill-session -t {sess_name}')
@@ -20,13 +20,14 @@ for i in range(8):
             break
         
         failed_pings += 1
-        time.sleep(30)
+        time.sleep(120)
+        # 5 pings with 2min sleep, 10min before kill session.
 
     else:  # If ping success
         # Checks if tmux session exists. os.system will return 0 if successful, so if anything else but zero it probably failed.
         if os.system(f'tmux ls | grep {sess_name}'):
             lprint(filename, "INFO: Tmux 'sess' not found. Executing tmux_setup.py")
-            if os.system(f'python3 ~/git/playground/scripts/tmux_setup.py starttmux startbots'):
+            if os.system(f'python3 ~/git/playground/scripts/tmux_setup.py starttmux startbots startservers'):
                 lprint(filename, "ERROR: Executing tmux_setup.py")
             else:
                 os.system(f"python3 ~/git/playground/scripts/matsumoto.py 'Arcpy: Tmux session initiated'")
