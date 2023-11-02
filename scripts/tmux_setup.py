@@ -48,7 +48,7 @@ if __name__ == '__main__':
 
     if 'starttmux' in sys.argv:
         start_tmux_session()
-        lprint(filename, "INFO: Constructed tmux session")
+        lprint(filename, "INFO: Constructed tmux session: sess")
 
     if 'startbots' in sys.argv:
         # Must have aliases in bash profile
@@ -59,5 +59,6 @@ if __name__ == '__main__':
         lprint(filename, "INFO: Started bots in tmux session")
 
     if 'startservers' in sys.argv:
-        os.system(f'tmux send-keys -t {tmux_session_name}:0.0 "srcslime && python3 ~/git/slime_server/source/run_bot.py startserver" ENTER')
+        os.system(f'tmux send-keys -t {tmux_session_name}:0.0 "cd ~/Games/Minecraft/servers/papermc && java -server -Xmx4G -Xms1G -XX:+UseG1GC -XX:MaxGCPauseMillis=100 -XX:ParallelGCThreads=2 -jar server.jar nogui" ENTER')
+        os.system(f'tmux send-keys -t {tmux_session_name}:0.1 "cd ~/Games/Minecraft/servers/valhesia5 && sh ServerStart.sh" ENTER')
         lprint(filename, "INFO: Started servers in tmux session")

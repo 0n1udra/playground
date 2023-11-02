@@ -1,3 +1,0 @@
-IdeaVIM
-com.github.copilot
-izhangzhihao.rainbow.brackets
