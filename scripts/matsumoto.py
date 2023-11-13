@@ -34,8 +34,13 @@ async def on_ready():
     await bot.close()
     lprint(location, f"INFO: Message sent: {msg}")
 
+def send_msg(text):
+    global msg
+    msg = text
+    bot.run(TOKEN)
+
+
 if __name__ == '__main__':
     if len(sys.argv) > 1:
-        msg = ' '.join(sys.argv[1:])
-        bot.run(TOKEN)
+        send_msg(' '.join(sys.argv[1:]))
 
