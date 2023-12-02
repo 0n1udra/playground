@@ -44,6 +44,7 @@ if [[ "${USER}" == "root" ]]; then userStyle="${white}"; else userStyle="${blue}
 if [[ "${USER}" == "arcpy" ]]; then userStyle="${COLOR_PURPLE}"; fi;
 if [[ "${USER}" == "pop_mbp" ]]; then userStyle="${yellow}"; fi;
 if [[ "${USER}" == "secr" ]]; then userStyle="${red}"; fi;
+if [[ "${USER}" == "0n1udra-MBP" ]]; then userStyle="${red}"; fi;
 
 # Set the terminal title and prompt.
 PS1="\[${orange}\]\H"; # Host Computer name
@@ -153,8 +154,6 @@ alias liquorsite='cd /srv/liquor_site/ && ./bin/gunicorn_start'
 
 # === Python
 alias python='python3'
-alias sdwebui='source $HOM/pyenvs/sdiffusion/bin/activate && cd $HOM/git/stable-diffusion-webui && python webui.py --medvram --opt-split-attention --listen'
-alias sdwebuilow='source $HOM/pyenvs/sdiffusion/bin/activate && cd $HOM/git/stable-diffusion-webui && python webui.py --lowvram --opt-split-attention --listen'
 alias srcslime='source ~/pyenvs/slime_server/bin/activate'
 alias srcliquor='source ~/pyenvs/liquor_site/bin/activate'
 
@@ -182,7 +181,6 @@ function duh { du -shc ${1:-./}* | grep -E "M|G|K|0" | sort -h;}
 
 alias getip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias btop='bpytop'
-alias ntop='watch1 nvidia-smi'
 alias wolarc='wakeonlan 00:22:4D:69:AA:CA'
 alias liquorstatus='curl -Is arcpy.asuscomm.com'
 
@@ -210,7 +208,8 @@ alias hnginx='sudo systemctl stop nginx'
 alias vinginx='sudoedit /etc/nginx/nginx.conf'
 alias vinginxliquor='sudoedit /etc/nginx/sites-available/liquor_site.conf'
 
-# ===== systemctl, systemd
+# ===== system, systemctl, systemd
+alias syslog='sudo fless /var/log/syslog'
 alias sysstart='sudo systemctl start'
 alias sysrestart='sudo systemctl restart'
 alias sysstop='sudo systemctl stop'
@@ -219,23 +218,29 @@ alias sysreload='sudo systemctl reload'
 alias sysenable='sudo systemctl enable'
 alias sysdisable='sudo systemctl disable'
 
+alias journalctl='journalctl -fxe'
 
 
 # ===== nhliquors
+alias goliquorsite='cd /srv/liquor_site/'
+alias sysstatusliquor='sh /srv/liquor_site/bin/status.sh'
+alias sysrestartliquor='sh /srv/liquor_site/bin/restart.sh'
+alias sysstopliquor='sh /srv/liquor_site/bin/stop.sh'
+alias liquorupdatedb='sh /srv/liquor_site/bin/stop.sh'
+alias liquorupdate='cd /srv/liquor_site/ && git stash && git pull && sysrestartliquor'
 alias liquorperms='sudo chown -R www-data:www-data /srv && sudo chmod -R g+wr /srv'
 alias logliquor='fless /srv/liquor_site/logs/liquor_backend.log'
 alias logerrorliquor='fless /srv/liquor_site/logs/nginx-error.log'
 alias logaccessliquor='fless /srv/liquor_site/logs/nginx-access.log'
 alias liquorstatus='curl -Is https://nhliquors.com'
-alias liquorupdate='sudo rm -rf /srv/liq.bak && sudo cp -r /srv/liquor_site /srv/liquor.bak && sudo cp -r ~/liquor_update/* /srv/liquor_site/ && sudo sysrestartliquor'
+alias liquorpull='cd /srv/liquor_site/ && git stash && git pull && chmod 755 /srv/liquor_site/bin/*'
+#alias liquorupdate='sudo rm -rf /srv/liq.bak && sudo cp -r /srv/liquor_site /srv/liquor.bak && sudo cp -r ~/liquor_update/* /srv/liquor_site/ && sudo sysrestartliquor'
 alias liquorbackup='sudo rm -rf /srv/liq.bak; sudo cp -r /srv/liquor_site /srv/liquor.bak'
-
-alias sysrestartliquor='sudo systemctl restart gunicorn.socket gunicorn.service nginx.service'
-alias sysstopliquor='sudo systemctl stop gunicorn.socket gunicorn.service nginx.service'
-alias sysstatusliquor='sudo systemctl status gunicorn.socket gunicorn.service nginx.service'
-
 alias viliquorservice='sudoedit /etc/systemd/system/gunicorn.service'
+# Postgresql
+alias restartdb='sudo systemctl restart postgresql'
+alias logdb='sudo less /var/log/postgresql/postgresql-13-main.log'
 
-alias fromnhliquors='async nhliquors:/srv/liquor_site/* $GIT/liquor_site/'
+
 #clear
 
