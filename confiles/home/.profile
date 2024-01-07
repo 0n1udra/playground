@@ -83,7 +83,7 @@ alias lh='ls -hsS'  # Show sizes (not total, use du)
 alias lsr='ls -FRh'  # Recursive
 alias ll='ls -Fhl'
 
-lc() {
+function lc() {
     echo "Line count: $(wc -l "$1")"
 }
 alias fc='echo File count: $(find . -maxdepth 1 -type f | wc -l)'
