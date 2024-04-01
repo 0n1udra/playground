@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import psutil, time, sys, os
-from extra import lprint
+from extra import lprint, dmsg
 
 sess_name = 'sess'
 filename = 'watcher.py'
@@ -9,14 +9,16 @@ filename = 'watcher.py'
 # Crontab will run this script every 10min
 failed_pings = 0
 for i in range(8):
-    if os.system('ping -c 2 1.1.1.1'):  # If ping fails
-        # If ping fails x times, kill session.
+    if os.system('ping -c 2 www.google.com'):  # If ping fails
+        # If ping fails >3 times it'll restart eno1, if >5, restarts server.
         # This script will start the session up again when ping is successful.
-        if failed_pings >= 5:  
+        if failed_pings >= 3:  
+            os.system(f'sudo ip link set down eno1 && sleep 5 && sudo ip link set up eno1')
+            lprint(filename, "INFO Lost internet. Restarted eno1 interface.")
+            dmsg("Restarted eno1")
+        if failed_pings >= 5:
+            lprint(filename, "INFO: Lost internet. Restarting server.")
             os.system(f'python3 ~/git/playground/scripts/powerdown.py tmux')
-            time.sleep(3)
-            os.system(f'tmux kill-session -t {sess_name}')
-            lprint(filename, "INFO: Lost internet connection. Killed tmux session")
             break
         
         failed_pings += 1
@@ -30,7 +32,7 @@ for i in range(8):
             if os.system(f'python3 ~/git/playground/scripts/tmux_setup.py starttmux startbots startservers'):
                 lprint(filename, "ERROR: Executing tmux_setup.py")
             else:
-                os.system(f"python3 ~/git/playground/scripts/matsumoto.py 'Arcpy: Tmux session initiated'")
+                dmsg("Tmux session initiated")
                 lprint(filename, "INFO: Finished tmux_setup.py")
         break
 
@@ -41,6 +43,7 @@ def checkbots():
     """
 
     discord_bots = {'slime': 'run_bot.py', 'channel17': 'channel17_bot.py'}
+    
  #'liquor': 'liquor_bot.py'
     for proc in psutil.process_iter():
         for k, v in discord_bots.items():
