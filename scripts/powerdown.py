@@ -25,10 +25,11 @@ if __name__ == '__main__':
     if 'slime' in sys.argv:
         reason = 'Slime_server command'
 
-    powerdown()
     if 'tmux' in sys.argv:
-        exit()
+        reason = 'Lost Internet'
+        os.system(f"tmux kill-session -t sess")
 
+    powerdown()
     if '--restart' in sys.argv:
         os.system("python3 ~/git/playground/scripts/matsumoto.py ArcPy: Restarting '(powerdown.py)'")
         os.system(f"sudo reboot")

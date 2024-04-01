@@ -1,5 +1,3 @@
-# Copy home files:
-cp -r home/* ~/
 
 #Setup
 ##Install Vundle (Vim Plugin Manager)

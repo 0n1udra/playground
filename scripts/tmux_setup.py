@@ -24,11 +24,18 @@ def start_tmux_session():
 && tmux split-window -h -t {tmux_session_name}:0.0')
 
     # === Another window with 2 panes
-    #os.system(f'tmux new-window -t {tmux_session_name} && tmux rename-window -t {tmux_session_name}:1 liquor &&  tmux split-window -v -t {tmux_session_name}:1.0 && tmux split-window -h -t {tmux_session_name}:1.0')
+#    os.system(f'tmux new-window -t {tmux_session_name} && \
+#tmux rename-window -t {tmux_session_name}:1 liquor &&  \
+#tmux split-window -v -t {tmux_session_name}:1.0 && \
+#tmux split-window -h -t {tmux_session_name}:1.0')
 
     # Sets tmux powerline theme.
     os.system(f'tmux send-keys -t {tmux_session_name}:1.0 "vim" ENTER && \
 tmux send-keys -t {tmux_session_name}:1.0 ":q!" ENTER')
+
+    # === Extra panel
+#    os.system(f'tmux new-window -t {tmux_session_name} && \
+#tmux split-window -v -t {tmux_session_name}:2.0')
 
     time.sleep(1)
 

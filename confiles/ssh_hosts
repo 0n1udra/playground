@@ -1,0 +1,30 @@
+Host nhliquors
+    Hostname 143.198.127.156
+    User nhliquors
+
+Host desktop
+    Hostname 192.168.1.114
+    User 0n1udra
+
+Host mbp
+    Hostname 192.168.1.67
+    User 0n1udra-MBP
+
+Host mbp13
+    Hostname 192.168.1.127
+    User mbp13
+
+Host arcpy
+    Hostname 192.168.1.189
+    User arcpy
+    KexAlgorithms +diffie-hellman-group1-sha1
+
+Host asus
+    HostName 192.168.1.1
+    User RippleMelmanWIFI
+
+Host linksys
+    HostName 192.168.1.2
+    User root
+    KexAlgorithms +diffie-hellman-group1-sha1
+
